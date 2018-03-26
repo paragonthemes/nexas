@@ -70,7 +70,7 @@ if (!class_exists( 'Nexas_Our_mission_Widget' )) {
                                     <div class="col-md-<?php echo $value; ?>">
                                         <div class="section-5-box-text-cont text-center">
                                             <h2><?php the_title(); ?></h2>
-                                            <p><?php echo esc_html( wp_trim_words(get_the_content(), 100) ); ?></p>
+                                            <p><?php echo esc_html( wp_trim_words(get_the_content(), 20) ); ?></p>
                                             <?php
                                                 if (!empty( $button_text ) && !empty($button_url) ) {
                                                     ?>

@@ -4,15 +4,17 @@ Theme URI:
 Author: paragonthemes
 Author URI: https://paragonthemes.com
 Description: Nexas is an attractive, modern, easy to use and responsive WordPress theme with colorful design and stunning flexibility. This theme is capable of tackling the overall needs of all nexas websites including business and others.  Nexas can also be used for business and corporate websites. The advanced theme options and available various widgets with drag and drop features will help to customize your site as your need.  Some of the available options are awesome slider section, header options, footer options, layout design options Color options, widget options, custom copyright options integrated social icons using menu, reset color option and lots of other available options will allow you to create unique website as you want. This theme will help you to create very high nexas website easily with no time at all.
-Version: 0.0.1
+Version: 1.0.0
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: nexas
 Tags:  custom-logo, one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-background, custom-colors, custom-menu, featured-images, theme-options, threaded-comments, translation-ready, blog, portfolio, e-commerce, footer-widgets
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
-Nexas is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Nexas WordPress Theme, Copyright 2018 by Paragon Themes
+Nexas is distributed under the terms of the GNU General Public License v2
+
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 */
@@ -1193,66 +1195,6 @@ header .navbar-toggle .icon-bar {
     width: 100%;
     z-index: 1;
 }
-/*
-.clouds {
-    position: absolute;
-    z-index:2;
-    top: 0;
-    left: 0;
-    width: 500em;
-    height: 43.75em;
-    opacity: 1;
-    visibility: inherit;
-    background: transparent url(assets/img/clouds.png) repeat-x scroll 0px 100%;
-    -webkit-animation: cloudLoop 60s linear infinite;
-    -moz-animation: cloudLoop 60s linear infinite;
-    -o-animation: cloudLoop 60s linear infinite;
-    animation: cloudLoop 60s linear infinite; 
-}
-@-webkit-keyframes cloudLoop {
-    0% {
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0)
-    }
-    100% {
-        -webkit-transform: translate3d(-50%, 0, 0);
-        transform: translate3d(-50%, 0, 0)
-    }
-}
-@-moz-keyframes cloudLoop {
-    0% {
-        -webkit-transform: translate3d(0, 0, 0);
-        -moz-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0)
-    }
-    100% {
-        -webkit-transform: translate3d(-50%, 0, 0);
-        -moz-transform: translate3d(-50%, 0, 0);
-        transform: translate3d(-50%, 0, 0)
-    }
-}
-@-o-keyframes cloudLoop {
-    0% {
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0)
-    }
-    100% {
-        -webkit-transform: translate3d(-50%, 0, 0);
-        transform: translate3d(-50%, 0, 0)
-    }
-}
-@keyframes cloudLoop {
-    0% {
-        -webkit-transform: translate3d(0, 0, 0);
-        -moz-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0)
-    }
-    100% {
-        -webkit-transform: translate3d(-50%, 0, 0);
-        -moz-transform: translate3d(-50%, 0, 0);
-        transform: translate3d(-50%, 0, 0)
-    }
-}*/
 .slider {
     position: relative;
     z-index: 2;

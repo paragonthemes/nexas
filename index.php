@@ -29,8 +29,6 @@ $nexas_designlayout      = nexas_get_option('nexas_sidebar_layout_option');
                 
                 </div>
         
-                <?php do_action('breadcrumb_setting_option'); ?>
-        
             </div>
         
         </div>

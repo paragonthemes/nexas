@@ -8,10 +8,7 @@
  * @subpackage Nexas
  */
 get_header();
-$nexas_designlayout      = get_post_meta(get_the_ID(), 'nexas_sidebar_layout', true  );
- do_action('breadcrumb_setting_option');
-
- ?>
+$nexas_designlayout      = get_post_meta(get_the_ID(), 'nexas_sidebar_layout', true  ); ?> 
  <section id="inner-title" class="inner-title"  <?php echo $header_style; ?>>
         <div class="container">
             <div class="row">

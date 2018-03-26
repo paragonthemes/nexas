@@ -89,4 +89,4 @@ if ( !function_exists('nexas_dynamic_css') ):
 
 }
 endif;
-//add_action('wp_enqueue_scripts', 'nexas_dynamic_css', 99);
+add_action('wp_enqueue_scripts', 'nexas_dynamic_css', 99);

@@ -22,10 +22,6 @@ $nexas_designlayout      = nexas_get_option('nexas_sidebar_layout_option');
                     <h2><?php printf(esc_html__('Search Results for: %s', 'nexas'), '<span>' . get_search_query() . '</span>'); ?></h2>
         
                 </div>
-        
-               <?php do_action('breadcrumb_setting_option');
-
-                ?>
             </div>
         </div>
     </section>

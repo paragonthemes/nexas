@@ -15,15 +15,11 @@
 
 get_header();
  $nexas_designlayout      = get_post_meta(get_the_ID(), 'nexas_sidebar_layout', true  );
- 
- do_action('breadcrumb_setting_option');
-
  ?>
     <section id="inner-title" class="inner-title"  <?php echo $header_style; ?>>
         <div class="container">
             <div class="row">
                 <div class="col-md-8"><h2><?php the_title(); ?></h2></div>
-                  <?php do_action('breadcrumb_setting_option'); ?>
             </div>
         </div>
     </section>

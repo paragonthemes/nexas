@@ -12,8 +12,8 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
             $defaults       = array(
                 'cat_id'    => -1,
                 'title'     => esc_html__('Recent Posts','nexas'),
-                'sub-title' => '',
-
+                'sub_title' => esc_html__('Read Our Recent Updates','nexas'),
+                'read_more'     => esc_html__('Read More','nexas'),
             );
 
             return $defaults;
@@ -38,7 +38,8 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
                 echo $args['before_widget'];
                 $catid        = absint( $instance['cat_id'] );
                 $title        = apply_filters('widget_title', !empty($instance['title']) ? esc_html( $instance['title']): '', $instance, $this->id_base);
-                $subtitle     =  esc_html( $instance['sub-title'] );
+                $subtitle     =  esc_html( $instance['sub_title'] );
+                $read_more    =  esc_html( $instance['read_more'] );
 
                 ?>
                 <section id="section14" class="section-margine section14">
@@ -132,9 +133,11 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
                                                     </a>
                                                 </div>
                                                 <p><?php echo esc_html( wp_trim_words( get_the_content(), 20 ) ); ?></p>
+                                                <?php if(!empty($read_more)){ ?>
                                                 <a href="<?php the_permalink(); ?>" class="btn btn-primary">
-                                                    <?php esc_html_e('Read More', 'nexas'); ?>
+                                                    <?php echo esc_html($read_more); ?>
                                                 </a>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +160,8 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
             $instance = $old_instance;
             $instance['cat_id'] = (isset( $new_instance['cat_id'] ) ) ? absint($new_instance['cat_id']) : '';
             $instance['title'] = sanitize_text_field( $new_instance['title'] );
-            $instance['sub-title'] = sanitize_text_field( $new_instance['sub-title'] );
+            $instance['sub_title'] = sanitize_text_field( $new_instance['sub_title'] );
+            $instance['read_more'] = sanitize_text_field( $new_instance['read_more'] );
 
             return $instance;
 
@@ -168,7 +172,8 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
             $instance = wp_parse_args( (array ) $instance, $this->defaults() );
             $catid = absint( $instance['cat_id'] );
             $title = esc_attr( $instance['title'] );
-            $subtitle =  esc_attr( $instance['sub-title'] );
+            $subtitle =  esc_attr( $instance['sub_title'] );
+            $read_more =  esc_attr( $instance['read_more'] );
 
             ?>
 
@@ -180,10 +185,10 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
             </p>
 
             <p>
-                <label for="<?php echo esc_attr( $this->get_field_id('sub-title') ); ?>">
+                <label for="<?php echo esc_attr( $this->get_field_id('sub_title') ); ?>">
                     <?php esc_html_e( 'Sub Title', 'nexas'); ?>
                 </label><br/>
-                <input type="text" name="<?php echo esc_attr($this->get_field_name('sub-title')); ?>" class="widefat" id="<?php echo esc_attr($this->get_field_id('sub-title')); ?>" value="<?php echo $subtitle; ?>">
+                <input type="text" name="<?php echo esc_attr($this->get_field_name('sub_title')); ?>" class="widefat" id="<?php echo esc_attr($this->get_field_id('sub_title')); ?>" value="<?php echo $subtitle; ?>">
             </p>
 
             <p>
@@ -211,7 +216,12 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
                 
                 ?>
             </p>
-            <hr>
+            <p>
+                <label for="<?php echo esc_attr( $this->get_field_id('read_more') ); ?>">
+                    <?php esc_html_e( 'Read More Text', 'nexas'); ?>
+                </label><br/>
+                <input type="text" name="<?php echo esc_attr($this->get_field_name('read_more')); ?>" class="widefat" id="<?php echo esc_attr($this->get_field_id('read_more')); ?>" value="<?php echo $read_more; ?>">
+            </p>
 
             <?php
         }

@@ -170,29 +170,6 @@ $wp_customize->add_section(
     )
 );
 
-/**
- * Breadcrumb Option
- */
-$wp_customize->add_setting(
-    'nexas_breadcrumb_setting_option',
-    array(
-        'default'           => $default['nexas_breadcrumb_setting_option'],
-        'sanitize_callback' => 'nexas_sanitize_select',
-
-    )
-);
-$hide_show_breadcrumb_option = nexas_show_breadcrumb_option();
-$wp_customize->add_control('nexas_breadcrumb_setting_option',
-    array(
-        'label'    => esc_html__('Breadcrumb Options', 'nexas'),
-        'section'  => 'nexas_breadcrumb_option',
-        'choices'  => $hide_show_breadcrumb_option,
-        'type'     => 'select',
-        'priority' => 10
-    )
-);
-
-
 /*-------------------------------------------------------------------------------------------*/
 /**
  * Search Placeholder

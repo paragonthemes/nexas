@@ -20,9 +20,15 @@ Powerful Theme for your business website. This theme comes with attractive slide
 3. Click Activate to use your new theme right away.
 
 #### Changelog ####
+## 1.0.0 - March 27 2018 ##
+* Submitted to WordPress
 
 ## 0.0.1 - Feb 07 2018 ##
 * Submitted to WordPress
+
+#### Copyright ####
+Nexas WordPress Theme, Copyright 2018 by Paragon Themes
+Nexas is distributed under the terms of the GNU General Public License v2
 
 #### Credits ####
 
@@ -52,7 +58,6 @@ Powerful Theme for your business website. This theme comes with attractive slide
 
 
 #### Image used in screenshot ####
-https://pixabay.com/en/snow-winter-cold-frozen-ice-3132908/
 
 #### Other Images: ####
  * default-sidebar.png

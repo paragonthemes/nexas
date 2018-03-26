@@ -69,8 +69,8 @@ if (!class_exists('Nexas_Quote_Widget')) {
         public function form($instance)
         {
             $instance = wp_parse_args( (array ) $instance, $this->defaults() );
-            $title = esc_attr( $instance['title']  );
-            $button_text = esc_attr( $instance['button-text'] );
+            $title = sanitize_text_field( $instance['title']  );
+            $button_text = sanitize_text_field( $instance['button-text'] );
             $button_text_link = esc_url( $instance['button-text-link'] );
 
             ?>

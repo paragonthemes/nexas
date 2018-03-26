@@ -16,8 +16,6 @@ get_header(); ?>
                 <div class="col-md-7">
                     <h2> <?php the_archive_title('<h2 class="page-title">', '</h2>') ?></h2>
                 </div>
-                 <?php do_action('breadcrumb_setting_option'); ?>
-
             </div>
         </div>
     </section>

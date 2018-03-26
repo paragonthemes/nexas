@@ -20,7 +20,6 @@ get_header();
             <div class="row">
                 <div class="col-md-8"><h2><?php esc_html_e('Store', 'nexas') ?></h2>
                 </div>
-                   <?php do_action('breadcrumb_setting_option'); ?>
             </div>
         </div>
     </section>

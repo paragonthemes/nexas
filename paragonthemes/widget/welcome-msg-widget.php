@@ -8,7 +8,9 @@ if (!class_exists( 'Nexas_Welcome_Msg_Widget' ) ) {
         {
             $defaults             = array(
                 'page_id'         => 0,
-                'character_limit' => 25
+                'character_limit' => 25,
+                'sub_title'       => esc_html__('About Nexas', 'nexas'),
+                'read_more'       => esc_html__('Read More', 'nexas')
             );
 
             return $defaults;
@@ -30,6 +32,8 @@ if (!class_exists( 'Nexas_Welcome_Msg_Widget' ) ) {
                 $instance        = wp_parse_args( (array )$instance, $this->defaults() );
                 $page_id         = absint($instance['page_id']);
                 $limit_character = absint( $instance['character_limit'] );
+                $sub_title = esc_html( $instance['sub_title'] );
+                $read_more = esc_html( $instance['read_more'] );
                 echo $args['before_widget'];
                 if ( !empty( $page_id ) ) {
                     $nexas_page_args     = array(
@@ -49,12 +53,18 @@ if (!class_exists( 'Nexas_Welcome_Msg_Widget' ) ) {
                                         <div class="col-sm-6 col-md-6">
                                             <div class="section-2-box-left section-margine">
                                                 <div class="sec-title">
-                                                    <h5><?php esc_html_e( 'About Nexas','nexas' ) ?></h5>
+                                                    <?php if(!empty($sub_title)){ ?> 
+                                                    <h5><?php echo esc_html($sub_title); ?>
+                                                    </h5>
+                                                    <?php } ?>
                                                     <h4><?php the_title(); ?></h4>
                                                     <div class="border left"></div>
                                                 </div>
                                                 <p><?php echo esc_html( wp_trim_words(get_the_content(), $limit_character)); ?></p>
-                                                <a href="<?php echo get_permalink(); ?>" class="btn btn-primary">Read More</a>
+                                                <?php if(!empty($read_more)){ ?>
+                                                <a href="<?php echo get_permalink(); ?>" class="btn btn-primary"><?php echo esc_html($read_more); ?>
+                                                </a>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
@@ -79,6 +89,8 @@ if (!class_exists( 'Nexas_Welcome_Msg_Widget' ) ) {
             $instance                    = $old_instance;
             $instance['page_id']         = absint($new_instance['page_id']);
             $instance['character_limit'] = absint( $new_instance['character_limit'] );
+            $instance['sub_title'] = sanitize_text_field( $new_instance['sub_title'] );
+            $instance['read_more'] = sanitize_text_field( $new_instance['read_more'] );
 
             return $instance;
         }
@@ -89,7 +101,14 @@ if (!class_exists( 'Nexas_Welcome_Msg_Widget' ) ) {
             $instance        = wp_parse_args((array )$instance, $this->defaults() );
             $page_id         = absint($instance['page_id']);
             $limit_character = absint( $instance['character_limit'] );
+            $sub_title = esc_attr( $instance['sub_title'] );
+            $read_more = esc_attr( $instance['read_more'] );
+
             ?>
+            <p>
+                <label for="<?php echo esc_attr( $this->get_field_id('sub_title')); ?>"><?php esc_html_e('Subtitle', 'nexas'); ?></label><br/>
+                <input type="text" name="<?php echo esc_attr( $this->get_field_name('sub_title')); ?>" class="nexas-cons" id="<?php echo esc_attr($this->get_field_id('sub_title')); ?>" value="<?php echo $sub_title ?>">
+            </p>
 
             <p>
                 <label for="<?php echo esc_attr($this->get_field_id('page_id')); ?>"><?php esc_html_e('Select Page', 'nexas'); ?></label><br/>
@@ -110,6 +129,11 @@ if (!class_exists( 'Nexas_Welcome_Msg_Widget' ) ) {
             <p>
                 <label for="<?php echo esc_attr( $this->get_field_id('character_limit')); ?>"><?php esc_html_e('Character Limit', 'nexas'); ?></label><br/>
                 <input type="number" name="<?php echo esc_attr( $this->get_field_name('character_limit')); ?>" class="nexas-cons" id="<?php echo esc_attr($this->get_field_id('character_limit')); ?>" value="<?php echo $limit_character ?>">
+            </p>
+
+            <p>
+                <label for="<?php echo esc_attr( $this->get_field_id('read_more')); ?>"><?php esc_html_e('Read More', 'nexas'); ?></label><br/>
+                <input type="text" name="<?php echo esc_attr( $this->get_field_name('read_more')); ?>" class="nexas-cons" id="<?php echo esc_attr($this->get_field_id('read_more')); ?>" value="<?php echo $read_more ?>">
             </p>
             <?php
         }

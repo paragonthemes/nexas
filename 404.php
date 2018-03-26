@@ -7,10 +7,6 @@
  * @package Paragon Themes
  * @subpackage Nexas
  */
-$nexas_breadcrump_option = nexas_get_option('nexas_breadcrumb_setting_option');
-
-get_header(); do_action('breadcrumb_setting_option');
-
  ?>
 
     <section id="inner-title" class="inner-title"  <?php echo $header_style; ?> >
@@ -24,9 +20,6 @@ get_header(); do_action('breadcrumb_setting_option');
                     <h2><?php esc_html_e('404 Not Found', 'nexas'); ?></h2>
 
                 </div>
-        
-                  <?php do_action('breadcrumb_setting_option');
-
                 ?>
             </div>
         </div>

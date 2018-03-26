@@ -55,7 +55,6 @@ if ( !function_exists('nexas_get_default_theme_options' ) ) :
         $default['nexas_top_footer_background_color']          = '#1A1E21';
         $default['nexas_bottom_footer_background_color']       = '#111315';
         $default['nexas_front_page_hide_option']               = 0;
-        $default['nexas_breadcrumb_setting_option']            = 'enable';
         $default['nexas_post_search_placeholder_option']       = esc_html__('Search', 'nexas');
         $default['nexas_color_reset_option']                   = 'do-not-reset';
 

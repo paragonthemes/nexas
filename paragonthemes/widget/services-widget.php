@@ -10,9 +10,9 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
 
             $defaults    = array(
                 'cat_id' => 0,
-                'image'  => '',
+                'title'     => esc_html__('Our Services','nexas'),
+                'sub_title' => esc_html__('Check Our All Services','nexas')
             );
-
             return $defaults;
         }
 
@@ -32,16 +32,34 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
             if (!empty( $instance ) ) {
                 $instance = wp_parse_args( (array ) $instance, $this->defaults ());
                 echo $args['before_widget'];
-                $catid    = absint( $instance['cat_id'] );
-                $image    = esc_url( $instance['image'] );
+                $title        = apply_filters('widget_title', !empty($instance['title']) ? esc_html( $instance['title']): '', $instance, $this->id_base);
+                $subtitle     =  esc_html( $instance['sub_title'] );
+                $catid        = absint( $instance['cat_id'] );
                 ?>
            
                 <section id="section4" class="section-margine section-4">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 text-center">
-                                <h2><?php esc_html_e( 'WHAT WE ARE DOING', 'nexas' )  ?></h2>
-                                <hr>
+                                <div class="section-title">                               
+                                    <?php
+                                
+                                    if ( !empty ( $title ) ) {
+                                        
+                                        ?>
+                                        <h2><?php echo $args['before_title'] . $title . $args['after_title']; ?></h2>
+                                        <hr>
+
+                                    <?php }
+
+                                    if ( !empty( $subtitle ) )
+                                        
+                                     {
+                                        ?>
+                                        <h6><?php echo $subtitle; ?></h6>
+                                    
+                                    <?php } ?>
+                                </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
@@ -54,7 +72,7 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
                                         $sticky = get_option( 'sticky_posts' );
                                         $home_services_section = array(
                                             'cat'                 => $catid,
-                                            'posts_per_page'      => 3,
+                                            'posts_per_page'      => 6,
                                             'ignore_sticky_posts' => true,
                                             'post__not_in'        => $sticky,
                                             'order'               => 'ASC'
@@ -80,7 +98,7 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
                                                             <i class="fa <?php echo esc_attr($icon); ?> fa-3x"></i>
                                                         </div>
                                                         <div class="section-4-box-text-cont">
-                                                            <h5><?php the_title(); ?></h5>
+                                                            <a href="<?php the_permalink();?>"><h5><?php the_title(); ?></h5></a>
                                                             <p><?php echo esc_html( wp_trim_words( get_the_content(), 16) ); ?></p>
                                                         </div>
                                                     </div>
@@ -89,49 +107,6 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
                                                 $i++;
                                             }
 
-                                        }
-                                        wp_reset_postdata();
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <?php
-                                    if ( !empty( $catid ) ) {
-                                        $j = 3;
-                                        $home_services_section = array(
-                                            'cat'                 => $catid,
-                                            'posts_per_page'      => 3,
-                                            'post__not_in'        => $idvalue,
-                                            'ignore_sticky_posts' => true,
-                                            'order'               => 'ASC'
-                                        );
-                                        $home_services_section_query = new WP_Query( $home_services_section );
-                                        if ($home_services_section_query->have_posts()) {
-                                            
-                                            while ($home_services_section_query->have_posts()) {
-                                            
-                                                $home_services_section_query->the_post();
-                                            
-                                                $icon = get_post_meta( get_the_ID(), 'nexas_icon', true );
-                                            
-                                                ?>
-                                                <div class="col-md-4">
-                                                    <div class="section-4-box wow fadeIn"
-                                                         data-wow-delay=".<?php echo esc_attr($j); ?>s">
-                                                        <div class="section-4-box-icon-cont">
-                                                            <i class="fa <?php echo esc_attr($icon); ?> fa-3x"></i>
-                                                        </div>
-                                                        <div class="section-4-box-text-cont">
-                                                            <h5><?php the_title(); ?></h5>
-                                                            <p><?php echo esc_html( wp_trim_words( get_the_content(), 16) ); ?></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php
-                                                $j++;
-                                            }
                                         }
                                         wp_reset_postdata();
                                     }
@@ -149,8 +124,9 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
         public function update($new_instance, $old_instance)
         {
             $instance           = $old_instance;
+            $instance['title'] = ( isset( $new_instance['title'])) ? sanitize_text_field($new_instance['title']) : '';
+            $instance['sub_title'] = ( isset( $new_instance['sub_title'])) ? sanitize_text_field($new_instance['sub_title']) : '';
             $instance['cat_id'] = ( isset( $new_instance['cat_id'])) ? absint($new_instance['cat_id']) : '';
-            $instance['image']  = esc_url_raw( $new_instance['image'] );
             return $instance;
 
         }
@@ -158,9 +134,24 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
         public function form($instance)
         {
             $instance = wp_parse_args( (array ) $instance, $this->defaults() );
+            $title = esc_attr( $instance['title'] );
+            $subtitle =  esc_attr( $instance['sub_title'] );
             $catid    = absint( $instance['cat_id'] );
-            $image    = esc_url( $instance['image'] );
             ?>
+
+            <p>
+                <label for="<?php echo esc_attr($this->get_field_id('title')); ?>">
+                    <?php esc_html_e('Title', 'nexas'); ?>
+                </label><br/>
+                <input type="text" name="<?php echo esc_attr( $this->get_field_name('title') ); ?>" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title') ); ?>" value="<?php echo $title; ?>">
+            </p>
+
+            <p>
+                <label for="<?php echo esc_attr( $this->get_field_id('sub_title') ); ?>">
+                    <?php esc_html_e( 'Sub Title', 'nexas'); ?>
+                </label><br/>
+                <input type="text" name="<?php echo esc_attr($this->get_field_name('sub_title')); ?>" class="widefat" id="<?php echo esc_attr($this->get_field_id('sub_title')); ?>" value="<?php echo $subtitle; ?>">
+            </p>
 
             <p>
                 <label for="<?php echo esc_attr( $this->get_field_id('cat_id') ); ?>">
@@ -184,22 +175,6 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
                 );
                 wp_dropdown_categories( $nexas_dropown_cat );
                 ?>
-            </p>
-            <hr>
-
-            <p>
-                <label for="<?php echo esc_attr( $this->get_field_id('image') ); ?>">
-                    <?php esc_html_e('Image Size[243 X 470]', 'nexas'); ?>
-                </label>
-                <br/>
-
-                <?php
-                if ( !empty( $image ) ) :
-                    echo '<img class="custom_media_image widefat" src="' . $image . '"/><br />';
-                endif;
-                ?>
-                <input type="text" class="widefat custom_media_url" name="<?php echo esc_attr( $this->get_field_name('image') ); ?>" id="<?php echo esc_attr( $this->get_field_id('image') ); ?>" value="<?php echo $image; ?>">
-                <input type="button" class="button button-primary custom_media_button" id="custom_media_button" name="<?php echo esc_attr( $this->get_field_name('image') ); ?>" value="<?php esc_attr_e('Upload Image', 'nexas') ?>" />
             </p>
             <?php
         }
