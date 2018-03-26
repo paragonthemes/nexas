@@ -78,6 +78,7 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
                             <div class="col-md-12">
                         
                                 <h2 class="text-center"><?php echo $title; ?></h2>
+                                <hr>
                         
                                 <div class="portfolioFilter text-center">
                         
@@ -85,7 +86,7 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
                         
                                     if (!empty( $nexas_ad_title ) ) {
                         
-                                        echo '<a href="#" data-filter="*" class="current">' . $nexas_ad_title . '</a>/';
+                                        echo '<a href="#" data-filter="*" class="current">' . $nexas_ad_title . '</a>';
                                     }
 
                                     if (!empty( $nexas_selected_cat ) && is_array( $nexas_selected_cat ) ) 
@@ -93,7 +94,7 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
                                         foreach ( $nexas_selected_cat as $nexas_selected_single_cat ) 
                                         {
 
-                                            echo ' <a href="#" data-filter=".' . esc_attr( $nexas_selected_single_cat ) . '">' . esc_html( get_cat_name($nexas_selected_single_cat ) ) . '</a>/';
+                                            echo ' <a href="#" data-filter=".' . esc_attr( $nexas_selected_single_cat ) . '">' . esc_html( get_cat_name($nexas_selected_single_cat ) ) . '</a>';
                                         }
                                     }
 
@@ -157,14 +158,27 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
                                             
                                                 ?>
                                             
-                                                <div class="<?php echo esc_attr($nexas_column); ?> col-sm-12 col-xs-12  text-center">
-
-                                                    <a class="magnific-popup" href="<?php echo esc_url($image_url[0]); ?>">
-                                            
-                                                        <img src="<?php echo esc_url($image_url[0]); ?>" class="img-responsive wow zoomIn" alt="image">
-                                            
-                                                    </a>
-
+                                                <div class="<?php echo esc_attr($nexas_column); ?> col-sm-12 col-xs-12  text-left">
+                                                    <div class="filter-box">
+                                                        <div class="image-box">
+                                                            <a class="magnific-popup" href="<?php echo esc_url($image_url[0]); ?>">
+                                                                <img src="<?php echo esc_url($image_url[0]); ?>" class="img-responsive wow zoomIn" alt="image">
+                                                            </a>
+                                                        </div>
+                                                        <div class="overlay"></div>
+                                                        <div class="lower-box">
+                                                            <div class="lower-box-inner">
+                                                                <a class="magnific-popup" href="<?php echo esc_url($image_url[0]); ?>">
+                                                                    <i class="fa fa-search-plus" aria-hidden="true"></i>
+                                                                </a>
+                                                                <a href="<?php the_permalink(); ?>">
+                                                                    <i class="fa fa-link" aria-hidden="true"></i>
+                                                                </a>
+                                                                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                                                <p><?php echo esc_html( wp_trim_words( get_the_content(), 5) ); ?></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <?php
                                             }

@@ -47,20 +47,7 @@ if ( !class_exists( 'Nexas_Testimonial_Widget' ) ) {
                           <div class="container">
                         
                             <div class="row">
-                        
-                                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                        
-                                    <div class="testimonials-left">
-                        
-                                        <h4 class="color-white"><?php esc_html_e( 'Happy Clients','nexas' ) ?></h4>
-                        
-                                        <h2 class="color-white"><?php esc_html_e( 'What Our Clients Say','nexas' );  ?></h2>
-                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
-                                
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-sm-offset-1">
                                     <div class="carousel slide" data-ride="carousel" id="quote-carousel">
                                         <!-- Carousel Slides / Quotes -->
                                         <div class="carousel-inner">
@@ -81,13 +68,13 @@ if ( !class_exists( 'Nexas_Testimonial_Widget' ) ) {
                                                     while ( $home_testimonial_section_query->have_posts() ) {
                                                         $home_testimonial_section_query->the_post();
                                                         ?>
-                                                        <div class="item content  <?php if ( $i == 0) {
+                                                        <div class="item content text-center  <?php if ( $i == 0) {
                                                             echo 'active';
                                                         } 
                                                          ?>">
                                                             <blockquote>
                                                                 <div class="row">
-                                                                    <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
+                                                                    <div class="col-sm-12">
                                                                         <div class="avatar">
                                                                             <?php if (has_post_thumbnail()) {
                                                                               
@@ -96,13 +83,12 @@ if ( !class_exists( 'Nexas_Testimonial_Widget' ) ) {
                                                                                 $image_url = wp_get_attachment_image_src($image_id, 'full', true);
                                                                                 ?>
                                                                               
-                                                                                <img class="img-circle " src="<?php echo esc_url($image_url[0]); ?>" />
+                                                                                <img class="img-responsive " src="<?php echo esc_url($image_url[0]); ?>" />
                                                                             <?php } ?>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12 ">
+                                                                    <div class="col-sm-12 ">
                                                                         <div class="text">
-                                                                            <sup><i class="fa fa-quote-left"></i></sup>
                                                                             <?php the_content() ?>
                                                                         </div>
                                                                         <div class="author-name"><?php the_title(); ?></div>
@@ -129,12 +115,14 @@ if ( !class_exists( 'Nexas_Testimonial_Widget' ) ) {
                                         if ($count > 1) {
                                             ?>
                                             <!-- Carousel Buttons Next/Prev -->
-                                            <div class="c-control">
-                                                <a data-slide="prev" href="#quote-carousel" class="left carousel-control">
-                                                    <i class="fa fa-angle-left"></i></a>
-                                                <a data-slide="next" href="#quote-carousel" class="right carousel-control">
-                                                    <i class="fa fa-angle-right"></i>
-                                                </a>
+                                            <div class="c-control-outer">
+                                                <div class="c-control">
+                                                    <a data-slide="prev" href="#quote-carousel" class="left carousel-control">
+                                                        <i class="fa fa-angle-left"></i></a>
+                                                    <a data-slide="next" href="#quote-carousel" class="right carousel-control">
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </a>
+                                                </div>
                                             </div>
                                         <?php } ?>
 

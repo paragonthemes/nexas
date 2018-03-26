@@ -40,10 +40,10 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 text-center">
-                                <h2><?php esc_html_e( 'Our Services', 'nexas' )  ?></h2>
+                                <h2><?php esc_html_e( 'WHAT WE ARE DOING', 'nexas' )  ?></h2>
                                 <hr>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <?php
                                     
@@ -73,7 +73,7 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
                                                 
                                                 ?>
 
-                                                <div class="col-md-12">
+                                                <div class="col-md-4">
                                                     <div class="section-4-box wow fadeIn"
                                                          data-wow-delay=".<?php echo esc_attr($i); ?>s">
                                                         <div class="section-4-box-icon-cont">
@@ -93,15 +93,9 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
                                         wp_reset_postdata();
                                     }
                                     ?>
-
                                 </div>
                             </div>
-                            <?php if ( !empty( $image ) ) { ?>
-                                <div class="col-md-4  wow fadeInUp">
-                                    <figure><img src="<?php echo $image; ?>" class="img-responsive" /></figure>
-                                </div>
-                            <?php } ?>
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <?php
                                     if ( !empty( $catid ) ) {
@@ -123,7 +117,7 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
                                                 $icon = get_post_meta( get_the_ID(), 'nexas_icon', true );
                                             
                                                 ?>
-                                                <div class="col-md-12">
+                                                <div class="col-md-4">
                                                     <div class="section-4-box wow fadeIn"
                                                          data-wow-delay=".<?php echo esc_attr($j); ?>s">
                                                         <div class="section-4-box-icon-cont">
@@ -142,7 +136,6 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
                                         wp_reset_postdata();
                                     }
                                     ?>
-
                                 </div>
                             </div>
                         </div>

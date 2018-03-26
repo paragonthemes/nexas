@@ -104,7 +104,7 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
                                     
                                     ?>
                                     <div class="col-md-4">
-                                        <div class="section-14-box blog-box wow fadeInLeft <?php if ( !has_post_thumbnail() ) {
+                                        <div class="section-14-box blog-box wow fadeInUp <?php if ( !has_post_thumbnail() ) {
                                             echo "no-image";
                                         } ?> " data-wow-delay="<?php echo esc_attr($i); ?>s">
 

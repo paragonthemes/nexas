@@ -47,80 +47,43 @@ if (!class_exists( 'Nexas_Our_mission_Widget' )) {
                     'post_status'    => 'publish'
                 );
                 $mission_query = new WP_Query($nexas_page_args);
-                
                 if ($mission_query->have_posts()):
-                
                     while ($mission_query->have_posts()):$mission_query->the_post();
-                
                         if (has_post_thumbnail()) {
-                
                             $image_id   = get_post_thumbnail_id();
-                
                             $image_url  = wp_get_attachment_image_src($image_id, 'full', true);
-                
                             $image_path = $image_url[0];
                         }
 
-                         if (empty($image_path)) {
-
-                             $value = 12;
-                         }
-                         else
-                         {
-                            $value = 6;
-                         }
-                
+                        if (empty($image_path)) {
+                            $value = 12;
+                        }
+                        else
+                        {
+                            $value = 12;
+                        }
                         ?>
 
-                        <section id="section5" class="section-margine section-5-background"
-                                 style="background: url(<?php echo $bgimage; ?>) no-repeat fixed;">
-                       
+                        <section id="section5" class="section-margine section-5-background" style="background: url(<?php echo $bgimage; ?>) no-repeat fixed;">
                             <div class="container">
-                       
                                 <div class="row">
-                       
                                     <div class="col-md-<?php echo $value; ?>">
-                                      
-                                        <div class="section-5-box-text-cont wow fadeInRight">
-                                      
+                                        <div class="section-5-box-text-cont text-center">
                                             <h2><?php the_title(); ?></h2>
-                                      
-                                            <p><?php echo esc_html( wp_trim_words(get_the_content(), 100) ); 
-
-                                            ?></p>
-                                            
+                                            <p><?php echo esc_html( wp_trim_words(get_the_content(), 100) ); ?></p>
                                             <?php
-                                            
-                                            if (!empty( $button_text ) && !empty($button_url) ) {
-                                                ?>
-                                            
-                                                <a href="<?php echo $button_url; ?>
-                                                " class="btn btn-primary">
-                                            
-                                                  <?php echo $button_text; ?> </a>
-                                            
-                                            <?php } ?>
+                                                if (!empty( $button_text ) && !empty($button_url) ) {
+                                                    ?>
+                                                    <a href="<?php echo $button_url; ?>
+                                                    " class="btn btn-primary">
+                                                      <?php echo $button_text; ?> </a>
+                                                <?php } 
+                                            ?>
                                         </div>
                                     </div>
-
-                                    <?php if (!empty($image_path)) { ?>
-                                    
-                                        <div class="col-md-6">
-                                    
-                                            <div class="section-5-box-text-cont wow fadeInLeft">
-                                    
-                                                <img src="<?php echo esc_url( $image_path ); ?>" class="img-responsive">
-                                    
-                                            </div>
-                                    
-                                        </div>
-                                    
-                                    <?php } ?>
-
                                 </div>
                             </div>
                         </section>
-
                         <?php
                     endwhile;
                 endif;

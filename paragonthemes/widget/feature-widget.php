@@ -33,57 +33,63 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
                 echo $args['before_widget'];
              
                 ?>
-                <section id="section1" class="section-margine section1">
-                    <div class="container">
+                <section id="section1" class="section1">
+                    <div class="container-fulid">
                         <div class="row">
-                            <?php if ( !empty( $catid ) ) {
-                                $i = 0;
-                                $sticky               = get_option( 'sticky_posts' );
-                                $home_feature_section = array(
-                                    'ignore_sticky_posts' => true,
-                                    'post__not_in'        => $sticky,
-                                    'cat'                 => $catid,
-                                    'posts_per_page'      => 3
-                                );
-                                $home_feature_section_query = new WP_Query( $home_feature_section );
-                                if ( $home_feature_section_query->have_posts() ) {
-
-                                    while ($home_feature_section_query->have_posts())
-                                     {
-                                        
-                                        $home_feature_section_query->the_post();
-                                        
-                                        $icon = get_post_meta( get_the_ID(), 'nexas_icon', true );
-                                        
-                                        ?>
-                                        <div class="col-md-4">
-                                            <div class="section-1-box wow bounceIn"
-                                                 data-wow-delay=".<?php echo esc_attr($i); ?>">
-                                                <?php
-                                                if(!empty($icon))
-                                                {
-                                                ?>
-                                                    <div class="section-1-box-icon-background">
-                                                        <div class="hexagon">
-                                                            <div class="hexagon2">
-                                                                <i class="fa <?php echo esc_attr($icon); ?>"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                          <?php } ?>
-                                          
-                                                <h4><?php the_title() ?></h4>
-                                          
-                                                <p><?php echo esc_html( wp_trim_words( get_the_content(), 8) ); ?></p>
-                                            </div>
+                            <div class="col-lg-6 col-md-12 col-xs-12">
+                                <div class="item-holder" style="background: url(http://demo.paragonthemes.com/html/f1.jpg);"> </div>                                        
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-xs-12">
+                                <div class="section-margine">
+                                    <div class="feature-title">
+                                        <div class="sec-title two">
+                                            <h2><?php esc_html_e( 'CORE FEATURES', 'nexas' )  ?></h2>
+                                            <hr>
                                         </div>
-                                        <?php
-                                        $i++;
+                                    </div>
+                                    <?php if ( !empty( $catid ) ) {
+                                        $i = 0;
+                                        $sticky               = get_option( 'sticky_posts' );
+                                        $home_feature_section = array(
+                                            'ignore_sticky_posts' => true,
+                                            'post__not_in'        => $sticky,
+                                            'cat'                 => $catid,
+                                            'posts_per_page'      => 3
+                                        );
+                                        $home_feature_section_query = new WP_Query( $home_feature_section );
+                                        if ( $home_feature_section_query->have_posts() ) {
+
+                                            while ($home_feature_section_query->have_posts())
+                                             {
+                                                
+                                                $home_feature_section_query->the_post();
+                                                
+                                                $icon = get_post_meta( get_the_ID(), 'nexas_icon', true );
+                                                
+                                                ?>
+                                                <div class="section-1-box" data-wow-delay=".<?php echo esc_attr($i); ?>">
+                                                    <?php
+                                                    if(!empty($icon))
+                                                    {
+                                                    ?>
+                                                        <div class="section-1-box-icon-background">
+                                                            <i class="fa <?php echo esc_attr($icon); ?>"></i>
+                                                        </div>
+                                                    <?php } ?>
+                                              
+                                                    <h4><?php the_title() ?></h4>
+                                              
+                                                    <p><?php echo esc_html( wp_trim_words( get_the_content(), 8) ); ?></p>
+                                                </div>
+                                                <?php
+                                                $i++;
+                                            }
+                                        }
+                                        wp_reset_postdata();
                                     }
-                                }
-                                wp_reset_postdata();
-                            }
-                            ?>
+                                    ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

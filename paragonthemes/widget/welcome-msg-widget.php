@@ -41,30 +41,25 @@ if (!class_exists( 'Nexas_Welcome_Msg_Widget' ) ) {
                     );
 
                   $welcome_query = new WP_Query( $nexas_page_args );
-                 
                     if ($welcome_query->have_posts()):
-                 
                         while ($welcome_query->have_posts()):$welcome_query->the_post(); ?>
-
-                            <section id="section2" class="section-margine">
-                 
+                            <section id="section2">
                                 <div class="container">
-                 
                                     <div class="row">
-                 
-                                        <div class="col-md-8 col-md-offset-2 text-center ">
-                 
-                                            <div class="section-2-box-left wow fadeInUp">
-                 
-                                                <h4><?php the_title(); ?></h4>
-                 
-                                            </div>
-                 
-                                        </div>
-                 
-                                        <div class="col-md-8 col-md-offset-2 text-center">
-                                            <div class="section-2-box-right wow fadeInRight">
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="section-2-box-left section-margine">
+                                                <div class="sec-title">
+                                                    <h5><?php esc_html_e( 'About Nexas','nexas' ) ?></h5>
+                                                    <h4><?php the_title(); ?></h4>
+                                                    <div class="border left"></div>
+                                                </div>
                                                 <p><?php echo esc_html( wp_trim_words(get_the_content(), $limit_character)); ?></p>
+                                                <a href="<?php echo get_permalink(); ?>" class="btn btn-primary">Read More</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="section-2-box-right text-center">
+                                                <?php echo get_the_post_thumbnail( $post_id, 'large' ); ?>
                                             </div>
                                         </div>
                                     </div>
