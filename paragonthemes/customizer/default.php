@@ -51,7 +51,7 @@ if ( !function_exists('nexas_get_default_theme_options' ) ) :
 
         // Color Option.
         $default['nexas_primary_color']                        = '#1865A0';
-        $default['nexas_top_header_background_color']          = '#ffffff';
+        $default['nexas_top_header_background_color']          = '#1865A0';
         $default['nexas_top_footer_background_color']          = '#1A1E21';
         $default['nexas_bottom_footer_background_color']       = '#111315';
         $default['nexas_front_page_hide_option']               = 0;

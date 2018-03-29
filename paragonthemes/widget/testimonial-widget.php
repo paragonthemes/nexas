@@ -1,4 +1,11 @@
 <?php
+/**
+ * Class for adding Our Features Section Widget
+ *
+ * @package Paragon Themes
+ * @subpackage Nexas
+ * @since 1.0.0
+ */
 if ( !class_exists( 'Nexas_Testimonial_Widget' ) ) {
 class Nexas_Testimonial_Widget extends WP_Widget
 
