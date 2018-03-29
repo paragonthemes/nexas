@@ -57,6 +57,7 @@ if ( !function_exists('nexas_get_default_theme_options' ) ) :
         $default['nexas_front_page_hide_option']               = 0;
         $default['nexas_post_search_placeholder_option']       = esc_html__('Search', 'nexas');
         $default['nexas_color_reset_option']                   = 'do-not-reset';
+        $defaults['nexas_slider_option'] = '';
 
         // Pass through filter.
         $default                                               = apply_filters( 'nexas_get_default_theme_options', $default );

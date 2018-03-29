@@ -257,6 +257,12 @@ require get_template_directory() . '/paragonthemes/core/theme-function.php';
 
 include get_template_directory() . '/paragonthemes/hooks/dynamic-css.php';
 
+/**
+ * Load Cusomizer Repeater
+ */
+
+include get_template_directory() . '/paragonthemes/customizer-repeater/customizer-control-repeater.php';
+
 
 /**
  * define size of logo.

@@ -16,10 +16,55 @@ $wp_customize->add_section(
 );
 
 /**
- * Show/Hide option for Homepage Slider Section
+ * Homepage Slider Section
  *
  */
+$slider_pages = array();
+$slider_pages_obj = get_pages();
+$slider_pages[''] = esc_html__('Select Slider Page','nexas');
+foreach ($slider_pages_obj as $page) {
+    $slider_pages[$page->ID] = $page->post_title;
+}
+$wp_customize->add_setting( 
+    'nexas_slider_option', 
+    array(
+    'sanitize_callback' => '',
+    'default' => $defaults['nexas_slider_option']
+) );
+$wp_customize->add_control(
+    new PT_Repeater_Control(
+        $wp_customize,
+        'nexas_slider_option',
+        array(
+            'label'   => __('Slider Selection','nexas'),
+            'description'=> __('Select Page For Slider','nexas'),
+            'section' => 'nexas_slider_section',
+            'settings' => 'nexas_slider_option',
+            'repeater_main_label' => __('Select Slide of Slider','nexas'),
+            'repeater_add_control_field' => __('Add New Slide','nexas')
+        ),
+        array(
+            'selectpage' => array(
+                'type'        => 'select',
+                'label'       => __( 'Select Page For Slide', 'nexas' ),
+                'options'   => $slider_pages
+            ),
+            'button_1_text' => array(
+                'type'        => 'text',
+                'label'       => __( 'Button One Text', 'nexas' ),
+            ),
+            'button_1_link' => array(
+                'type'        => 'url',
+                'label'       => __( 'Button One Link', 'nexas' ),
+            ),
+        )
+    )
+);
 
+/**
+ * Homepage Slider Section Show
+ *
+ */
 $wp_customize->add_setting(
     'nexas_homepage_slider_option',
     array(
@@ -39,33 +84,6 @@ $wp_customize->add_control(
         'priority'    => 7
     )
 );
-
-/**
- * Dropdown available category for homepage slider
- *
- */
-$wp_customize->add_setting(
-    'nexas_slider_cat_id',
-    array(
-        'default'           => $default['nexas_slider_cat_id'],
-        'capability'        => 'edit_theme_options',
-        'sanitize_callback' => 'absint'
-    )
-);
-$wp_customize->add_control(new Nexas_Customize_Category_Control(
-        $wp_customize,
-        'nexas_slider_cat_id',
-        array(
-            'label'        => esc_html__('Slider Category', 'nexas'),
-            'description'  => esc_html__('Select Category for Homepage Slider Section', 'nexas'),
-            'section'      => 'nexas_slider_section',
-            'priority'     => 8,
-
-        )
-    )
-);
-
-
 /**
  * Field for no of posts to display..
  *

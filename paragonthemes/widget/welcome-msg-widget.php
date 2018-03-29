@@ -69,7 +69,7 @@ if (!class_exists( 'Nexas_Welcome_Msg_Widget' ) ) {
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="section-2-box-right text-center">
-                                                <?php echo get_the_post_thumbnail( $post_id, 'large' ); ?>
+                                                <?php echo get_the_post_thumbnail(get_the_ID(), 'large' ); ?>
                                             </div>
                                         </div>
                                     </div>

@@ -13,6 +13,8 @@ if (!function_exists('nexas_widgets_backend_enqueue')) :
         wp_register_script('nexas-custom-widgets', get_template_directory_uri() . '/assets/js/widgets.js', array('jquery'), true);
         wp_enqueue_media();
         wp_enqueue_script('nexas-custom-widgets');
+
+        wp_enqueue_style('nexas-pt-admin', get_template_directory_uri() . '/assets/css/pt-admin-css.css', array(), '2.0.0');  
     }
 
     add_action('admin_enqueue_scripts', 'nexas_widgets_backend_enqueue');
@@ -160,3 +162,11 @@ require get_template_directory() . '/paragonthemes/widget/testimonial-widget.php
  * Custom Our Work Widget
  */
 require get_template_directory() . '/paragonthemes/widget/our-work-widget.php';
+
+/**
+ * Custom Our Team Widget
+ */
+require get_template_directory() . '/paragonthemes/widget/team-widget.php';
+
+
+

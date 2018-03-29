@@ -1,6 +1,13 @@
 <?php
-if( !class_exists( 'Nexas_Font_awesome_Class_Metabox') ){
-    class Nexas_Font_awesome_Class_Metabox {
+/**
+ * Class for adding font awesome icons
+ *
+ * @package Paragon Themes
+ * @subpackage Nexas
+ * @since 1.0.0
+ */
+if( !class_exists( 'Nexas_Font_Awesome_Class_Metabox') ){
+    class Nexas_Font_Awesome_Class_Metabox {
 
         public function __construct()
         {
@@ -16,12 +23,12 @@ if( !class_exists( 'Nexas_Font_awesome_Class_Metabox') ){
 
             add_meta_box(
                     'nexas_icon',
-                    esc_html__('Font Awesome class', 'nexas'),
+                    esc_html__('Font Awesome Class For Features', 'nexas'),
                     array(
                             $this, 'nexas_generate_icon'),
-                    'post',
+                    'page',
                     'side',
-                    'high'
+                    'low'
             );
         }
 
@@ -58,4 +65,4 @@ if( !class_exists( 'Nexas_Font_awesome_Class_Metabox') ){
         }
     }
 }
-$productsMetabox = new Nexas_Font_awesome_Class_Metabox;
+$productsMetabox = new Nexas_Font_Awesome_Class_Metabox;

@@ -97,10 +97,9 @@ if (is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active_
                        ?></p>
                 </div>
             </div>
-        </div>
+      </div>
     </div>
 </section>
-
 <?php wp_footer(); ?>
 
 </body>

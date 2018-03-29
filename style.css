@@ -193,7 +193,7 @@ button,
  input[type="reset"],
  input[type="submit"] {
     position: relative;
-    padding: 9px 39px;
+    padding: 10px 20px;
     line-height: 24px;
     text-transform: uppercase;
     background: #EC5538;
@@ -253,12 +253,17 @@ input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"]{
-    padding: 6px 0 6px 9px;
     -webkit-appearance: none;
     -webkit-border-radius: 0;
 }
-.wpcf7 input {
+.wpcf7 input[type="text"], 
+.wpcf7 input[type="email"], 
+.wpcf7 input[type="url"], 
+.wpcf7 input[type="password"], 
+.wpcf7 input[type="search"], 
+.wpcf7 textarea {
     width: 100%;
+    padding: 7px;
 }
 .wpcf7 input.wpcf7-submit {
     width: auto;
@@ -331,7 +336,6 @@ a {
     -o-transition: 0.3s;
     -webkit-transition: 0.3s;
     transition: 0.3s;
-    color: #333;
 }
 
 a:visited {
@@ -891,7 +895,6 @@ input:-webkit-autofill:focus {
 
 .contact-detail2 li a {
     color: #fff;
-    margin-right: 60px;
     display: inline-block;
     font-size: 14px;
 }
@@ -1122,8 +1125,8 @@ header .dropdown-menu > li > a {
 }
 
 header .dropdown-menu > li > a:hover {
-    color: #fff !important;
-    background-color: #EC5538 !important;
+    color: #fff;
+    background-color: #EC5538;
 }
 
 header .navbar-menu {
@@ -1168,13 +1171,25 @@ header .navbar-toggle {
     background-color: #EC5538;
     border: 0;
     border-radius: 2px;
+  margin-top:30px !important;
 }
 header .navbar-toggle:focus, 
 header .navbar-toggle:hover {
-    background-color: #EC5538 !important;
+    background-color: #EC5538;
 }
 header .navbar-toggle .icon-bar {
-    background-color: #fff!important;
+    background-color: #fff !important;
+}
+@media only screen and (max-width: 767px) {
+    .navbar-default .navbar-nav > li{
+      width: 100%;
+      text-align: left;
+      padding: 5px 0;
+    }
+  .navbar-default .navbar-nav > li a{
+    padding:5px 0;
+    text-align:left;
+  }
 }
 
 /************************************
@@ -1230,6 +1245,7 @@ header .navbar-toggle .icon-bar {
 }
 .slider .carousel-caption .btn{
     margin-top: 20px;
+    color:#fff;
 }
 .slider .carousel-control.left,
 .slider .carousel-control.right {
@@ -1347,15 +1363,21 @@ header .navbar-toggle .icon-bar {
     color: #777;
     margin: 0;
 }
-
-.search-form button {
-    background: #ffffff;
-    border: none;
-    float: right;
-    margin-top: -32px;
-    margin-right: 15px;
+#searchform {
     position: relative;
-    z-index: 2;
+}
+.search-form button {
+  background: #ffffff;
+  border: none;
+  float: right;
+  margin-top: 1px;
+  margin-right: 1px;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  height: 43px;
+  padding: 10px 15px;
+  color: #000;
 }
 
 
@@ -1438,6 +1460,52 @@ header .navbar-toggle .icon-bar {
 .section1{
     background:#f5f5f5;
 }
+.section1 .sec-title {
+    position: relative;
+    padding-bottom: 50px;
+    margin-top: -5px;
+}
+.section1 .sec-title {
+    padding-bottom: 34px;
+}
+.section1 h4 {
+    font-size: 28px;
+    color: #555;
+    margin:0;
+    letter-spacing: .5px;
+}
+.section1 .border {
+    position: relative;
+    display: block;
+    width: 90px;
+    height: 5px;
+    background: transparent;
+    margin: 17px 0 0;
+}
+.section1 .border::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 70px;
+    height: 1px;
+    margin: 0 auto;
+    background: #EC5538;
+    content: "";
+}
+.section1 .border::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: #EC5538;
+    content: "";
+}
+.section1 .border.left::before {
+    margin: 0;
+}
 .section1 .item-holder {
     position: relative;
     padding: 100px 90px 87px 0px;
@@ -1489,7 +1557,7 @@ header .navbar-toggle .icon-bar {
 }
 
 .section-1-box i {
-    color: #EC5538;
+    color: #fff;
     font-size: 30px;
     line-height: 70px;
 }
@@ -2568,12 +2636,6 @@ hr {
     margin-right: 5px;
 }
 
-.section16 input[type="text"],
-.section16 input[type="email"]{
-    border-radius: 0;
-    padding: 10px 15px;
-    height: 50px;
-}
 
 .section16 textarea {
     border-radius: 0;
@@ -2849,6 +2911,16 @@ hr {
 .section-0-btn-cont {
     text-align: right;
     margin: 0;
+}
+.section-0-btn-cont .btn {
+    background: #fff;
+    border-color: #fff;
+    color: #333;
+}
+@media only screen and (max-width: 767px) {
+  .section-0-btn-cont{
+    text-align:left;
+  }
 }
 /* ==================================== Pricing ======================= */
 
