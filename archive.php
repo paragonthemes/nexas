@@ -7,9 +7,9 @@
  * @package Paragon Themes
  * @subpackage Nexas
  */
+get_header(); 
 $nexas_designlayout      = nexas_get_option( 'nexas_sidebar_layout_option' );
-get_header(); ?>
-
+?>
     <section id="inner-title" class="inner-title"  <?php echo $header_style; ?>>
         <div class="container">
             <div class="row">

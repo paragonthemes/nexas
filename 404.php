@@ -7,6 +7,7 @@
  * @package Paragon Themes
  * @subpackage Nexas
  */
+get_header();
  ?>
 
     <section id="inner-title" class="inner-title"  <?php echo $header_style; ?> >

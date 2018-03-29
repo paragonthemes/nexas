@@ -7,6 +7,7 @@
  * @package Paragon Themes
  * @subpackage Nexas
  */
+get_header();
 $nexas_designlayout      = nexas_get_option('nexas_sidebar_layout_option');
 
 
