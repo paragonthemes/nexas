@@ -24,7 +24,7 @@ foreach ($slider_pages_obj as $page) {
 $wp_customize->add_setting( 
     'nexas_slider_option', 
     array(
-    'sanitize_callback' => '',
+    'sanitize_callback' => 'nexas_sanitize_slider_data',
     'default' => $defaults['nexas_slider_option']
 ) );
 $wp_customize->add_control(

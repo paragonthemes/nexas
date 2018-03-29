@@ -86,3 +86,38 @@ if ( !function_exists('nexas_sanitize_select') ) :
         return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
     }
 endif;
+/**
+ * Sanitizing the select callback example
+ *
+ * @since Nexas 1.0.0
+ *
+ * @see sanitize_key()               https://developer.wordpress.org/reference/functions/sanitize_key/
+ * @see $wp_customize->get_control() https://developer.wordpress.org/reference/classes/wp_customize_manager/get_control/
+ *
+ * @param $input
+ * @param $setting
+ * @return sanitized output
+ */
+function nexas_sanitize_slider_data( $input ){
+    $input_decoded = json_decode( $input, true );
+    if( !empty( $input_decoded ) ) {
+        foreach ( $input_decoded as $boxes => $box ){
+            foreach ( $box as $key => $value ){
+                if( $key == 'selectpage '){
+                    $input_decoded[$boxes][$key] = absint( $value );
+                }
+                elseif ( $key == 'button_text' ){
+                    $input_decoded[$boxes][$key] = sanitize_text_field( $value );
+                }
+                elseif ( $key == 'button_link' ){
+                    $input_decoded[$boxes][$key] = esc_url_raw( $value );
+                }
+                else{
+                    $input_decoded[$boxes][$key] = esc_attr( $value );
+                }
+            }
+        }
+        return json_encode( $input_decoded );
+    }
+    return $input;
+}

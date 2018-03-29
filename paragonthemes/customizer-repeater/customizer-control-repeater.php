@@ -75,11 +75,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Medical_Circle_C
                         <?php if( !empty( $value ) ) { echo '<i class="fa '. $value .'"></i>'; } ?>
                     </span>
                     <span class="icon-toggle">
-                        <?php echo ( empty( $value )? __('Add Icon','medical-circle'): __('Edit Icon','medical-circle') ); ?>
+                        <?php echo ( empty( $value )? __('Add Icon','nexas'): __('Edit Icon','nexas') ); ?>
                         <span class="dashicons dashicons-arrow-down"></span>
                     </span>
                     <span class="icons-list-wrapper hidden">
-                        <input class="icon-search" type="text" placeholder="<?php esc_attr_e('Search Icon','medical-circle')?>">
+                        <input class="icon-search" type="text" placeholder="<?php esc_attr_e('Search Icon','nexas')?>">
 	                    <?php
 	                    $fa_icon_list_array = medical_circle_icons_array();
 	                    foreach ( $fa_icon_list_array as $single_icon ) {
@@ -228,11 +228,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
                                         <span class="at-customize-icons">
                                         <span class="icon-preview"></span>
                                         <span class="icon-toggle">
-                                            <?php echo __('Add Icon','medical-circle'); ?>
+                                            <?php echo __('Add Icon','nexas'); ?>
                                             <span class="dashicons dashicons-arrow-down"></span>
                                         </span>
                                         <span class="icons-list-wrapper hidden">
-                                            <input class="icon-search" type="text" placeholder="<?php esc_attr_e('Search Icon','medical-circle')?>">
+                                            <input class="icon-search" type="text" placeholder="<?php esc_attr_e('Search Icon','nexas')?>">
 	                                        <?php
 	                                        $fa_icon_list_array = medical_circle_icons_array();
 	                                        foreach ( $fa_icon_list_array as $single_icon ) {
@@ -256,10 +256,10 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
 						?>
                         <div class="clearfix repeater-footer">
                             <a class="repeater-field-remove" href="#remove">
-								<?php _e( 'Delete', 'medical-circle' ) ?>
+								<?php _e( 'Delete', 'nexas' ) ?>
                             </a> |
                             <a class="repeater-field-close" href="#close">
-								<?php _e( 'Close', 'medical-circle' ) ?>
+								<?php _e( 'Close', 'nexas' ) ?>
                             </a>
                         </div>
                     </div>
@@ -327,11 +327,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
                                                 <?php if( !empty( $new_value ) ) { echo '<i class="fa '. $new_value .'"></i>'; } ?>
                                             </span>
                                             <span class="icon-toggle">
-                                                <?php echo ( empty( $new_value )? __('Add Icon','medical-circle'): __('Edit Icon','medical-circle') ); ?>
+                                                <?php echo ( empty( $new_value )? __('Add Icon','nexas'): __('Edit Icon','nexas') ); ?>
                                                 <span class="dashicons dashicons-arrow-down"></span>
                                             </span>
                                             <span class="icons-list-wrapper hidden">
-                                                <input class="icon-search" type="text" placeholder="<?php esc_attr_e('Search Icon','medical-circle')?>">
+                                                <input class="icon-search" type="text" placeholder="<?php esc_attr_e('Search Icon','nexas')?>">
 	                                            <?php
 	                                            $fa_icon_list_array = medical_circle_icons_array();
 	                                            foreach ( $fa_icon_list_array as $single_icon ) {
@@ -360,10 +360,10 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
 
                             <div class="clearfix repeater-footer">
                                 <a class="repeater-field-remove" href="#remove">
-									<?php _e( 'Delete', 'medical-circle' ) ?>
-                                </a><?php _e( '|', 'medical-circle' ) ?>
+									<?php _e( 'Delete', 'nexas' ) ?>
+                                </a><?php _e( '|', 'nexas' ) ?>
                                 <a class="repeater-field-close" href="#close">
-									<?php _e( 'Close', 'medical-circle' ) ?>
+									<?php _e( 'Close', 'nexas' ) ?>
                                 </a>
                             </div>
                         </div>
