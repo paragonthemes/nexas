@@ -117,7 +117,7 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
                                               
                                                     <h4><?php the_title() ?></h4>
                                               
-                                                    <p><?php echo esc_html( wp_trim_words( get_the_content(), 8) ); ?></p>
+                                                    <p><?php the_excerpt(); ?></p>
                                                 </div>
                                                 <?php
                                                     endwhile;

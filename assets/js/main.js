@@ -29,10 +29,11 @@ Designed By: Paragon Themes
 			 //Portfolio Popup
     $('.magnific-popup').magnificPopup({type:'image'});
 				
+    
     });
 
    
-	//Wow js
+//Wow js
 	new WOW().init();
 	 
 }(jQuery));	
@@ -65,6 +66,6 @@ Designed By: Paragon Themes
         }
        });
        return false;
-    }); 
+    });
 
   });

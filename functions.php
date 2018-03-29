@@ -41,6 +41,9 @@ if (!function_exists('nexas_setup')) :
          * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
          */
         add_theme_support('post-thumbnails');
+
+        //Add Excerpt field in page
+        add_post_type_support( 'page', 'excerpt' );       
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
             'primary' => esc_html__('Primary', 'nexas'),
@@ -104,7 +107,7 @@ function nexas_widgets_init()
     register_sidebar(array(
         'name' => esc_html__('Home Page Widget Area', 'nexas'),
         'id' => 'nexas-home-page',
-        'description' => esc_html__('Add widgets here to appear in Home Page', 'nexas'),
+        'description' => esc_html__('Add widgets here to appear in Home Page. First Select Front Page and Blog Page From Appearance > Homepage Settings', 'nexas'),
         'before_widget' => '',
         'after_widget' => '',
 
@@ -263,7 +266,24 @@ include get_template_directory() . '/paragonthemes/hooks/dynamic-css.php';
 
 include get_template_directory() . '/paragonthemes/customizer-repeater/customizer-control-repeater.php';
 
+/**
+ * Load tgm for this theme
+ */
+require get_template_directory() . '/paragonthemes/library/tgm/class-tgm-plugin-activation.php';
 
+/**
+ * Plugin recommendation using TGM
+*/
+require get_template_directory() . '/paragonthemes/hooks/tgm.php';
+
+/**
+ * Load about.
+ */
+if ( is_admin() ) {
+   
+include get_template_directory() . '/paragonthemes/about/about.php';
+include get_template_directory() . '/paragonthemes/about/class-about.php';
+}
 /**
  * define size of logo.
  */

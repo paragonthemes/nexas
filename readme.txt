@@ -56,6 +56,8 @@ Nexas is distributed under the terms of the GNU General Public License v2
 
 * wp_bootstrap_navwalker - https://github.com/twittem/wp-bootstrap-navwalker https://github.com/wp-bootstrap/wp-bootstrap-navwalker/blob/master/LICENSE.txt Edward McIntyre
 
+* TGM-Plugin-Activation http://tgmpluginactivation.com/, License GPL-2.0+, Copyright 2011 Thomas Griffin (thomasgriffinmedia.com)
+
 
 #### Image used in screenshot ####
 
