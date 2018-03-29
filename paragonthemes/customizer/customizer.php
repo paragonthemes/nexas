@@ -25,7 +25,7 @@ $wp_customize->add_setting(
     'nexas_slider_option', 
     array(
     'sanitize_callback' => 'nexas_sanitize_slider_data',
-    'default' => $defaults['nexas_slider_option']
+    'default' => $default['nexas_slider_option']
 ) );
 $wp_customize->add_control(
     new PT_Repeater_Control(
