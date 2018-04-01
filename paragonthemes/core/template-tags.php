@@ -75,6 +75,7 @@ if (!function_exists( 'nexas_entry_footer' ) ) :
             echo '</span>';
         }
 
+        if ( get_edit_post_link() ) :
         edit_post_link(
             sprintf(
             /* translators: %s: Name of current post */
@@ -84,6 +85,7 @@ if (!function_exists( 'nexas_entry_footer' ) ) :
             '<span class="edit-link">',
             '</span>'
         );
+    endif;
     }
 endif;
 
@@ -98,10 +100,10 @@ function nexas_categorized_blog()
     if (false === ($all_the_cool_cats = get_transient('nexas_categories'))) {
         // Create an array of all the categories that are attached to posts.
         $all_the_cool_cats = get_categories(array(
-            'fields' => 'ids',
+            'fields'     => 'ids',
             'hide_empty' => 1,
             // We only need to know if there is more than one category.
-            'number' => 2,
+            'number'     => 2,
         ));
 
         // Count the number of categories that are attached to the posts.

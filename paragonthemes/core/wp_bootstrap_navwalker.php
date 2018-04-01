@@ -3,9 +3,7 @@
  * WP Bootstrap Navwalker
  *
  * @package WP-Bootstrap-Navwalker
- */
-
-/*
+ *
  * Class Name: WP_Bootstrap_Navwalker
  * Plugin Name: WP Bootstrap Navwalker
  * Plugin URI:  https://github.com/wp-bootstrap/wp-bootstrap-navwalker
@@ -210,7 +208,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
                 if ( $menu_class ) {
                     echo ' class="' . esc_attr( $menu_class ) . '"'; }
                 echo '>';
-                echo '<li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="">' . esc_attr( 'Add a menu', '' ) . '</a></li>';
+                echo '<li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="">' . esc_attr( 'Add a menu', 'nexas' ) . '</a></li>';
                 echo '</ul>';
                 if ( $container ) {
                     echo '</' . esc_attr( $container ) . '>'; }

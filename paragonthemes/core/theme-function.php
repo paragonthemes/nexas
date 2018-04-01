@@ -72,7 +72,7 @@ if ( !function_exists( 'nexas_get_option' ) ) :
         }
         $nexas_default_options = nexas_get_default_theme_options();
 
-        $default = (isset($nexas_default_options[$key])) ? $nexas_default_options[$key] : '';
+        $default      = (isset($nexas_default_options[$key])) ? $nexas_default_options[$key] : '';
 
         $theme_option = get_theme_mod($key, $default);
 

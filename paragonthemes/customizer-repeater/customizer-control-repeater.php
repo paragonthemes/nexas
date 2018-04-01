@@ -1,65 +1,17 @@
 <?php
-function medical_circle_sanitize_social_data( $input ){
-	$input_decoded = json_decode( $input, true );
-	if( !empty( $input_decoded ) ) {
-		foreach ( $input_decoded as $boxes => $box ){
-			foreach ( $box as $key => $value ){
-			    if( $key == 'link '){
-				    $input_decoded[$boxes][$key] = esc_url_raw( $value );
-                }
-				elseif ( $key == 'checkbox' ){
-					$input_decoded[$boxes][$key] = medical_circle_sanitize_checkbox( $value );
-                }
-                else{
-	                $input_decoded[$boxes][$key] = esc_attr( $value );
-                }
-			}
-		}
-		return json_encode( $input_decoded );
-	}
-	return $input;
-}
 
-function medical_circle_sanitize_slider_data( $input ){
-	$input_decoded = json_decode( $input, true );
-	if( !empty( $input_decoded ) ) {
-		foreach ( $input_decoded as $boxes => $box ){
-			foreach ( $box as $key => $value ){
-				if( $key == 'selectpage '){
-					$input_decoded[$boxes][$key] = absint( $value );
-				}
-                elseif ( $key == 'button_1_text' ){
-					$input_decoded[$boxes][$key] = sanitize_text_field( $value );
-				}
-                elseif ( $key == 'button_1_link' ){
-					$input_decoded[$boxes][$key] = esc_url_raw( $value );
-				}
-                elseif ( $key == 'button_2_text' ){
-					$input_decoded[$boxes][$key] = sanitize_text_field( $value );
-				}
-                elseif ( $key == 'button_2_link' ){
-					$input_decoded[$boxes][$key] = esc_url_raw( $value );
-				}
-				else{
-					$input_decoded[$boxes][$key] = esc_attr( $value );
-				}
-			}
-		}
-		return json_encode( $input_decoded );
-	}
-	return $input;
-}
-
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Medical_Circle_Customize_Icons_Control' )):
-	/**
+/**
 	 * Custom Control for Icons Controls
-	 * @package Acme Themes
-	 * @subpackage Medical Circle
+	 * @package Paragon Themes
+	 * @subpackage Nexas
 	 * @since 1.0.0
 	 *
 	 */
 
-	class Medical_Circle_Customize_Icons_Control extends WP_Customize_Control {
+
+if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Nexas_Customize_Icons_Control' )):
+	
+	class Nexas_Customize_Icons_Control extends WP_Customize_Control {
 		public $type = 'icons-control';
 		public function enqueue() {
 
@@ -70,7 +22,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Medical_Circle_C
             <label>
                 <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
                 <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
-                <span class="at-customize-icons">
+                <span class="pt-customize-icons">
                     <span class="icon-preview">
                         <?php if( !empty( $value ) ) { echo '<i class="fa '. $value .'"></i>'; } ?>
                     </span>
@@ -81,7 +33,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Medical_Circle_C
                     <span class="icons-list-wrapper hidden">
                         <input class="icon-search" type="text" placeholder="<?php esc_attr_e('Search Icon','nexas')?>">
 	                    <?php
-	                    $fa_icon_list_array = medical_circle_icons_array();
+	                    $fa_icon_list_array = nexas_icons_array();
 	                    foreach ( $fa_icon_list_array as $single_icon ) {
 		                    if( $value == $single_icon ) {
 			                    echo '<span class="single-icon selected"><i class="fa '. $single_icon .'"></i></span>';
@@ -91,7 +43,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Medical_Circle_C
 	                    }
 	                    ?>
                     </span>
-                    <input type="hidden" class="at-icon-value" value="" <?php $this->link(); ?>>
+                    <input type="hidden" class="pt-icon-value" value="" <?php $this->link(); ?>>
                 </span>
             </label>
 			<?php
@@ -102,8 +54,8 @@ endif;
 if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Control' )):
 	/**
 	 * Custom Control Repeater Controls
-	 * @package Acme Themes
-	 * @subpackage Medical Circle
+	 * @package Paragon Themes
+	 * @subpackage Nexas
 	 * @since 1.0.0
 	 *
 	 */
@@ -142,8 +94,8 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
 
 		public function enqueue(){
 			wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.5.0' );
-			wp_enqueue_style( 'at-customizer-repeater-style', get_template_directory_uri() . '/paragonthemes/customizer-repeater/customizer-repeater.css', array(), '3.3.6' );
-			wp_enqueue_script( 'at-customizer-repeater-script', get_template_directory_uri() . '/paragonthemes/customizer-repeater/customizer-repeater.js', array('jquery', 'jquery-ui-draggable' ), '1.0.0', true  );
+			wp_enqueue_style( 'pt-customizer-repeater-style', get_template_directory_uri() . '/paragonthemes/customizer-repeater/customizer-repeater.css', array(), '3.3.6' );
+			wp_enqueue_script( 'pt-customizer-repeater-script', get_template_directory_uri() . '/paragonthemes/customizer-repeater/customizer-repeater.js', array('jquery', 'jquery-ui-draggable' ), '1.0.0', true  );
 		}
 
 		public function render_content() {
@@ -151,18 +103,19 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
             <span class="customize-control-title">
                 <?php echo esc_html( $this->label ); ?>
             </span>
+
 			<?php if ( $this->description ) { ?>
                 <span class="description customize-control-description">
                 <?php echo wp_kses_post( $this->description ); ?>
             </span>
-				<?php
-			}
-			?>
-            <ul class="at-repeater-field-control-wrap">
+        
+        	<?php } ?>
+		    	
+		    <ul class="pt-repeater-field-control-wrap">
 				<?php $this->get_fields(); ?>
             </ul>
-            <input type="hidden" <?php $this->link(); ?> class="at-repeater-collection" value="<?php echo esc_attr( $this->value() ); ?>"/>
-            <button type="button" class="button at-repeater-add-control-field"><?php echo esc_html( $this->repeater_add_control_field ); ?></button>
+            <input type="hidden" <?php $this->link(); ?> class="pt-repeater-collection" value="<?php echo esc_attr( $this->value() ); ?>"/>
+            <button type="button" class="button pt-repeater-add-control-field"><?php echo esc_html( $this->repeater_add_control_field ); ?></button>
 			<?php
 		}
 
@@ -170,7 +123,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
 			$fields = $this->fields;
 			$values = json_decode( $this->value() );
 			?>
-            <script type="text/html" class="at-repeater-field-control-generator">
+            <script type="text/html" class="pt-repeater-field-control-generator">
 
                 <li class="repeater-field-control">
                     <h3 class="repeater-field-title accordion-section-title">
@@ -225,7 +178,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
 
 									case 'icons':
 										?>
-                                        <span class="at-customize-icons">
+                                        <span class="pt-customize-icons">
                                         <span class="icon-preview"></span>
                                         <span class="icon-toggle">
                                             <?php echo __('Add Icon','nexas'); ?>
@@ -234,14 +187,14 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
                                         <span class="icons-list-wrapper hidden">
                                             <input class="icon-search" type="text" placeholder="<?php esc_attr_e('Search Icon','nexas')?>">
 	                                        <?php
-	                                        $fa_icon_list_array = medical_circle_icons_array();
+	                                        $fa_icon_list_array = nexas_icons_array();
 	                                        foreach ( $fa_icon_list_array as $single_icon ) {
 		                                        echo '<span class="single-icon"><i class="fa '. $single_icon .'"></i></span>';
 	                                        }
 	                                        ?>
                                         </span>
 											<?php
-											echo '<input class="at-icon-value"  data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="hidden" value="' . esc_attr( $new_value ) . '"/>';
+											echo '<input class="pt-icon-value"  data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="hidden" value="' . esc_attr( $new_value ) . '"/>';
 											?>
                                     </span>
 										<?php
@@ -322,7 +275,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
 
 										case 'icons':
 											?>
-                                            <span class="at-customize-icons">
+                                            <span class="pt-customize-icons">
                                             <span class="icon-preview">
                                                 <?php if( !empty( $new_value ) ) { echo '<i class="fa '. $new_value .'"></i>'; } ?>
                                             </span>
@@ -333,7 +286,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
                                             <span class="icons-list-wrapper hidden">
                                                 <input class="icon-search" type="text" placeholder="<?php esc_attr_e('Search Icon','nexas')?>">
 	                                            <?php
-	                                            $fa_icon_list_array = medical_circle_icons_array();
+	                                            $fa_icon_list_array = nexas_icons_array();
 	                                            foreach ( $fa_icon_list_array as $single_icon ) {
 		                                            if( $new_value == $single_icon ) {
 			                                            echo '<span class="single-icon selected"><i class="fa '. $single_icon .'"></i></span>';
@@ -344,7 +297,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
 	                                            ?>
                                             </span>
 												<?php
-												echo '<input class="at-icon-value"  data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="hidden" value="' . esc_attr( $new_value ) . '"/>';
+												echo '<input class="pt-icon-value"  data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="hidden" value="' . esc_attr( $new_value ) . '"/>';
 												?>
                                         </span>
 											<?php

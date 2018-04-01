@@ -15,14 +15,14 @@ get_header();
 $nexas_hide_front_page_content = nexas_get_option( 'nexas_front_page_hide_option' );
 
 /*show widget in front page, now user are not force to use front page*/
-if (!is_home()) {
+if ( !is_home() ) {
    
-    do_action('nexas_home_page_section');
+    do_action( 'nexas_home_page_section' );
    
-    dynamic_sidebar('nexas-home-page');
+    dynamic_sidebar( 'nexas-home-page' );
 }
 
-if ('posts' == get_option('show_on_front')) {
+if ( 'posts' == get_option('show_on_front') ) {
 
     include( get_home_template() );
 
@@ -30,7 +30,7 @@ if ('posts' == get_option('show_on_front')) {
     
     if ( 1 != $nexas_hide_front_page_content ) {
        
-        include(get_page_template());
+        include( get_page_template() );
     }
 }
 

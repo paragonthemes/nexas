@@ -54,13 +54,13 @@ get_header();
               
                  $sidebardesignlayout   = esc_attr(nexas_get_option('nexas_sidebar_layout_option' ));
 
-                if (($nexas_designlayout =='default-sidebar'))
+                if (($nexas_designlayout == 'default-sidebar'))
                 {
-                    $nosidebar=1;
+                    $nosidebar = 1;
                 }
               
-                elseif( $sidebardesignlayout !='no-sidebar'){
-                    $nosidebar=0;
+                elseif( $sidebardesignlayout != 'no-sidebar'){
+                    $nosidebar = 0;
                 }
 
                 if (($nosidebar == 0))

@@ -10,7 +10,7 @@
 get_header();
  ?>
 
-    <section id="inner-title" class="inner-title"  <?php echo $header_style; ?> >
+    <section id="inner-title" class="inner-title" >
         
         <div class="container">
         

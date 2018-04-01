@@ -55,8 +55,6 @@ jQuery(document).ready(function($) {
 
 
 
-
-
 (function ( $, window, document, undefined ) {
     'use strict';
     var at_document = $(document);
@@ -75,11 +73,11 @@ jQuery(document).ready(function($) {
         });
     };
     var ATSORTABLE = function () {
-        var repeaters = $('.at-repeater');
+        var repeaters = $('.pt-repeater');
         repeaters.sortable({
             orientation: "vertical",
             items: '> .repeater-table',
-            placeholder: 'at-sortable-placeholder',
+            placeholder: 'pt-sortable-placeholder',
             update: function( event, ui ) {
                 ATREFRESHVALUE(ui.item);
             }
@@ -93,12 +91,12 @@ jQuery(document).ready(function($) {
         return str.replace(re,replaceTo);
     };
     var ATREPEATER =  function (){
-        at_document.on('click','.at-add-repeater',function (e) {
+        at_document.on('click','.pt-add-repeater',function (e) {
             e.preventDefault();
             var add_repeater = $(this),
-                repeater_wrap = add_repeater.closest('.at-repeater'),
-                code_for_repeater = repeater_wrap.find('.at-code-for-repeater'),
-                total_repeater = repeater_wrap.find('.at-total-repeater'),
+                repeater_wrap = add_repeater.closest('.pt-repeater'),
+                code_for_repeater = repeater_wrap.find('.pt-code-for-repeater'),
+                total_repeater = repeater_wrap.find('.pt-total-repeater'),
                 total_repeater_value = parseInt( total_repeater.val() ),
                 repeater_html = code_for_repeater.html();
 
@@ -106,18 +104,18 @@ jQuery(document).ready(function($) {
             var final_repeater_html = ATREPLACE( repeater_html, add_repeater.attr('id'),total_repeater_value );
             add_repeater.before($('<div class="repeater-table"></div>').append( final_repeater_html ));
             var new_html_object = add_repeater.prev('.repeater-table');
-            var repeater_inside = new_html_object.find('.at-repeater-inside');
+            var repeater_inside = new_html_object.find('.pt-repeater-inside');
             repeater_inside.slideDown( 'fast',function () {
                 new_html_object.addClass( 'open' );
                 ATREFRESHVALUE(new_html_object);
             } );
 
         });
-        at_document.on('click', '.at-repeater-top, .at-repeater-close', function (e) {
+        at_document.on('click', '.pt-repeater-top, .pt-repeater-close', function (e) {
             e.preventDefault();
             var accordion_toggle = $(this),
                 repeater_field = accordion_toggle.closest('.repeater-table'),
-                repeater_inside = repeater_field.find('.at-repeater-inside');
+                repeater_inside = repeater_field.find('.pt-repeater-inside');
 
             if ( repeater_inside.is( ':hidden' ) ) {
                 repeater_inside.slideDown( 'fast',function () {
@@ -130,22 +128,22 @@ jQuery(document).ready(function($) {
                 });
             }
         });
-        at_document.on('click', '.at-repeater-remove', function (e) {
+        at_document.on('click', '.pt-repeater-remove', function (e) {
             e.preventDefault();
             var repeater_remove = $(this),
                 repeater_field = repeater_remove.closest('.repeater-table'),
-                repeater_wrap = repeater_remove.closest('.at-repeater');
+                repeater_wrap = repeater_remove.closest('.pt-repeater');
 
             repeater_field.remove();
             ATREFRESHVALUE(repeater_wrap);
         });
 
-        at_document.on('change', '.at-select', function (e) {
+        at_document.on('change', '.pt-select', function (e) {
             e.preventDefault();
             var select = $(this),
-                repeater_inside = select.closest('.at-repeater-inside'),
-                postid = repeater_inside.find('.at-postid'),
-                repeater_control_actions = repeater_inside.find('.at-repeater-control-actions'),
+                repeater_inside = select.closest('.pt-repeater-inside'),
+                postid = repeater_inside.find('.pt-postid'),
+                repeater_control_actions = repeater_inside.find('.pt-repeater-control-actions'),
                 optionSelected = select.find("option:selected"),
                 valueSelected = optionSelected.val();
 
@@ -209,23 +207,23 @@ jQuery(document).ready(function($) {
         /**
          * Script for Customizer icons
          */
-        at_document.on('click', '.at-icons-wrapper .single-icon', function() {
+        at_document.on('click', '.pt-icons-wrapper .single-icon', function() {
             var single_icon = $(this),
-                at_customize_icons = single_icon.closest( '.at-icons-wrapper' ),
+                at_customize_icons = single_icon.closest( '.pt-icons-wrapper' ),
                 icon_display_value = single_icon.children('i').attr('class'),
                 icon_split_value = icon_display_value.split(' '),
                 icon_value = icon_split_value[1];
 
             single_icon.siblings().removeClass('selected');
             single_icon.addClass('selected');
-            at_customize_icons.find('.at-icon-value').val( icon_value );
+            at_customize_icons.find('.pt-icon-value').val( icon_value );
             at_customize_icons.find('.icon-preview').html('<i class="' + icon_display_value + '"></i>');
-            at_customize_icons.find('.at-icon-value').trigger('change');
+            at_customize_icons.find('.pt-icon-value').trigger('change');
         });
 
-        at_document.on('click', '.at-icons-wrapper .icon-toggle ,.at-icons-wrapper .icon-preview', function() {
+        at_document.on('click', '.pt-icons-wrapper .icon-toggle ,.pt-icons-wrapper .icon-preview', function() {
             var icon_toggle = $(this),
-                at_customize_icons = icon_toggle.closest( '.at-icons-wrapper' ),
+                at_customize_icons = icon_toggle.closest( '.pt-icons-wrapper' ),
                 icons_list_wrapper = at_customize_icons.find( '.icons-list-wrapper' ),
                 dashicons = at_customize_icons.find( '.dashicons' );
 
@@ -240,10 +238,10 @@ jQuery(document).ready(function($) {
             }
 
         });
-        at_document.on('keyup', '.at-icons-wrapper .icon-search', function() {
+        at_document.on('keyup', '.pt-icons-wrapper .icon-search', function() {
             var text = $(this),
                 value = this.value,
-                at_customize_icons = text.closest( '.at-icons-wrapper' ),
+                at_customize_icons = text.closest( '.pt-icons-wrapper' ),
                 icons_list_wrapper = at_customize_icons.find( '.icons-list-wrapper' );
 
             icons_list_wrapper.find('i').each(function () {
@@ -259,19 +257,19 @@ jQuery(document).ready(function($) {
         /*hide meta on pagebuilder */
         function at_build_hide_unnecessary_meta() {
             var page_template = $('#page_template'),
-                medical_circle_sidebar_layout = $('#medical_circle_sidebar_layout'),
-                medical_circle_meta_fields = $('#medical_circle_meta_fields'),
+                nexas_sidebar_layout = $('#nexas_sidebar_layout'),
+                nexas_meta_fields = $('#nexas_meta_fields'),
                 postimagediv = $('#postimagediv'),
                 optionSelected = page_template.find("option:selected"),
                 valueSelected = optionSelected.val();
             if( valueSelected === 'page-templates/template-builder.php' ){
-                medical_circle_sidebar_layout.addClass('hidden');
-                medical_circle_meta_fields.addClass('hidden');
+                nexas_sidebar_layout.addClass('hidden');
+                nexas_meta_fields.addClass('hidden');
                 postimagediv.addClass('hidden');
             }
             else{
-                medical_circle_sidebar_layout.removeClass('hidden');
-                medical_circle_meta_fields.removeClass('hidden');
+                nexas_sidebar_layout.removeClass('hidden');
+                nexas_meta_fields.removeClass('hidden');
                 postimagediv.removeClass('hidden');
             }
         }

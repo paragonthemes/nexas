@@ -25,33 +25,33 @@ $wp_customize->add_setting(
     'nexas_slider_option', 
     array(
     'sanitize_callback' => 'nexas_sanitize_slider_data',
-    'default' => $default['nexas_slider_option']
+    'default'           => $default['nexas_slider_option']
 ) );
 $wp_customize->add_control(
     new PT_Repeater_Control(
         $wp_customize,
         'nexas_slider_option',
         array(
-            'label'   => __('Slider Page Selection Section','nexas'),
-            'description'=> __('Select Page For Slider Having Featured Image. You can drag to reposition the slider items','nexas'),
-            'section' => 'nexas_slider_section',
-            'settings' => 'nexas_slider_option',
-            'repeater_main_label' => __('Select Page For Slider ','nexas'),
+            'label'                      => __('Slider Page Selection Section','nexas'),
+            'description'                => __('Select Page For Slider Having Featured Image. You can drag to reposition the slider items','nexas'),
+            'section'                    => 'nexas_slider_section',
+            'settings'                   => 'nexas_slider_option',
+            'repeater_main_label'        => __('Select Page For Slider ','nexas'),
             'repeater_add_control_field' => __('Add New Slide','nexas')
         ),
         array(
-            'selectpage' => array(
-                'type'        => 'select',
-                'label'       => __( 'Select Page For Slide', 'nexas' ),
-                'options'   => $slider_pages
+            'selectpage'                 => array(
+            'type'                       => 'select',
+            'label'                      => __( 'Select Page For Slide', 'nexas' ),
+            'options'                    => $slider_pages
             ),
-            'button_text' => array(
-                'type'        => 'text',
-                'label'       => __( 'Button Text', 'nexas' ),
+            'button_text'                => array(
+            'type'                       => 'text',
+            'label'                      => __( 'Button Text', 'nexas' ),
             ),
-            'button_link' => array(
-                'type'        => 'url',
-                'label'       => __( 'Button Link', 'nexas' ),
+            'button_link'                => array(
+            'type'                       => 'url',
+            'label'                      => __( 'Button Link', 'nexas' ),
             ),
         )
     )

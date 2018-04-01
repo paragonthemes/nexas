@@ -10,7 +10,8 @@
  * @subpackage Nexas
  */
 $copyright = nexas_get_option('nexas_copyright');
-if (is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active_sidebar('footer-3') || is_active_sidebar('footer-4')) {
+
+if ( is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active_sidebar('footer-3') || is_active_sidebar('footer-4') ) {
 
         $count = 0;
       
@@ -83,7 +84,7 @@ if (is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active_
         <div class="row">
             <div class="col-md-12">
                    <div class="copyright">
-                        <?php echo wp_kses_post($copyright); ?>
+                        <?php echo wp_kses_post( $copyright ); ?>
                     </div>
                     <div class="footer-credit">
                         <p><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'nexas' ) ); ?>"><?php

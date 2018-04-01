@@ -15,7 +15,7 @@
   get_header();
   ?>
 
-    <section id="inner-title" class="inner-title"  <?php echo $header_style; ?>>
+    <section id="inner-title" class="inner-title" >
         <div class="container">
             <div class="row">
                 <div class="col-md-8"><h2><?php esc_html_e('Store', 'nexas') ?></h2>
@@ -47,7 +47,7 @@
                     ?>
                 </div><!-- div -->
 
-                <?php if ($nexas_designlayout != 'no-sidebar') { ?>
+                <?php if ( $nexas_designlayout != 'no-sidebar' ) { ?>
 
                     <div class="col-md-3">
 

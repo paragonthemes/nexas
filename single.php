@@ -9,11 +9,11 @@
  */
 get_header();
 $nexas_designlayout      = get_post_meta(get_the_ID(), 'nexas_sidebar_layout', true  ); ?> 
- <section id="inner-title" class="inner-title"  <?php echo $header_style; ?>>
+
+ <section id="inner-title" class="inner-title" >
         <div class="container">
             <div class="row">
                 <div class="col-md-8"><h2><?php the_title(); ?></h2></div>
-                  <?php do_action('breadcrumb_setting_option'); ?>
             </div>
         </div>
 </section>
@@ -21,11 +21,11 @@ $nexas_designlayout      = get_post_meta(get_the_ID(), 'nexas_sidebar_layout', t
 <section id="section14" class="section-margine gray-bg">
     <div class="container">
         <div class="row">
-            <div class="col-sm-<?php if ($nexas_designlayout == 'no-sidebar') {
+            <div class="col-sm-<?php if ( $nexas_designlayout == 'no-sidebar') {
                 echo "12";
             } else {
                 echo "9";
-            } ?> col-md-<?php if ($nexas_designlayout == 'no-sidebar') {
+            } ?> col-md-<?php if ( $nexas_designlayout == 'no-sidebar' ) {
                 echo "12";
             } else {
                 echo "9";

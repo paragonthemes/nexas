@@ -34,7 +34,7 @@ if (!function_exists('nexas_show_breadcrumb_option')) :
     {
         $nexas_show_breadcrumb_option = array(
             'enable'  => esc_html__('Enable', 'nexas'),
-            'disable' => esc_html__('Disable', 'nexas')
+            'disable' => esc_html__('Disable','nexas')
         );
         return apply_filters('nexas_show_breadcrumb_option', $nexas_show_breadcrumb_option);
     }

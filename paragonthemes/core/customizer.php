@@ -56,10 +56,10 @@ endif;
  * Adding color in Theme Customizer cutom section
  */
 
-function newie_customizer_script() {
+function nexas_customizer_script() {
   
-    wp_enqueue_style( 'newie-customizer-style', get_template_directory_uri() .'/paragonthemes/core/css/customizer-style.css'); 
+    wp_enqueue_style( 'nexas-customizer-style', get_template_directory_uri() .'/paragonthemes/core/css/customizer-style.css'); 
 }
-add_action( 'customize_controls_enqueue_scripts', 'newie_customizer_script' );
+add_action( 'customize_controls_enqueue_scripts', 'nexas_customizer_script' );
 
 

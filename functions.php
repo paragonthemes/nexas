@@ -8,7 +8,7 @@
  * @subpackage Nexas
  */
 
-if (!function_exists('nexas_setup')) :
+if ( !function_exists( 'nexas_setup' ) ) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -22,7 +22,7 @@ if (!function_exists('nexas_setup')) :
          * Make theme available for translation.
         */
 
-         load_theme_textdomain( 'nexas' );
+        load_theme_textdomain( 'nexas' );
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support('automatic-feed-links');
@@ -45,7 +45,7 @@ if (!function_exists('nexas_setup')) :
         //Add Excerpt field in page
         add_post_type_support( 'page', 'excerpt' );       
         // This theme uses wp_nav_menu() in one location.
-        register_nav_menus(array(
+        register_nav_menus( array(
             'primary' => esc_html__('Primary', 'nexas'),
             'social-link' => esc_html__('Social Link', 'nexas'),
         ));
@@ -96,62 +96,62 @@ add_action('after_setup_theme', 'nexas_content_width', 0);
 function nexas_widgets_init()
 {
     register_sidebar(array(
-        'name' => esc_html__('Sidebar', 'nexas'),
-        'id' => 'sidebar-1',
-        'description' => esc_html__('Add widgets here.', 'nexas'),
+        'name'         => esc_html__('Sidebar', 'nexas'),
+        'id'           => 'sidebar-1',
+        'description'  => esc_html__('Add widgets here.', 'nexas'),
         'before_title' => '<h2 class="widget-title">',
-        'after_title' => '</h2>',
+        'after_title'  => '</h2>',
     ));
 
 
     register_sidebar(array(
-        'name' => esc_html__('Home Page Widget Area', 'nexas'),
-        'id' => 'nexas-home-page',
-        'description' => esc_html__('Add widgets here to appear in Home Page. First Select Front Page and Blog Page From Appearance > Homepage Settings', 'nexas'),
+        'name'          => esc_html__('Home Page Widget Area', 'nexas'),
+        'id'            => 'nexas-home-page',
+        'description'   => esc_html__('Add widgets here to appear in Home Page. First Select Front Page and Blog Page From Appearance > Homepage Settings', 'nexas'),
         'before_widget' => '',
-        'after_widget' => '',
+        'after_widget'  => '',
 
     ));
 
     register_sidebar(array(
-        'name' => esc_html__('Footer 1', 'nexas'),
-        'id' => 'footer-1',
-        'description' => esc_html__('Add widgets here.', 'nexas'),
+        'name'          => esc_html__('Footer 1', 'nexas'),
+        'id'            => 'footer-1',
+        'description'   => esc_html__('Add widgets here.', 'nexas'),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h2 class="widget-title">',
-        'after_title' => '</h2>',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
     ));
 
     register_sidebar(array(
-        'name' => esc_html__('Footer 2', 'nexas'),
-        'id' => 'footer-2',
-        'description' => esc_html__('Add widgets here.', 'nexas'),
+        'name'          => esc_html__('Footer 2', 'nexas'),
+        'id'            => 'footer-2',
+        'description'   => esc_html__('Add widgets here.', 'nexas'),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h2 class="widget-title">',
-        'after_title' => '</h2>',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
     ));
 
     register_sidebar(array(
-        'name' => esc_html__('Footer 3', 'nexas'),
-        'id' => 'footer-3',
-        'description' => esc_html__('Add widgets here.', 'nexas'),
+        'name'          => esc_html__('Footer 3', 'nexas'),
+        'id'            => 'footer-3',
+        'description'   => esc_html__('Add widgets here.', 'nexas'),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h2 class="widget-title">',
-        'after_title' => '</h2>',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
     ));
 
 
     register_sidebar(array(
-        'name' => esc_html__('Footer 4', 'nexas'),
-        'id' => 'footer-4',
-        'description' => esc_html__('Add widgets here.', 'nexas'),
+        'name'          => esc_html__('Footer 4', 'nexas'),
+        'id'            => 'footer-4',
+        'description'   => esc_html__('Add widgets here.', 'nexas'),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h2 class="widget-title">',
-        'after_title' => '</h2>',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
     ));
 }
 

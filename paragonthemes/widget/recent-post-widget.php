@@ -13,7 +13,7 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
                 'cat_id'    => -1,
                 'title'     => esc_html__('Recent Posts','nexas'),
                 'sub_title' => esc_html__('Read Our Recent Updates','nexas'),
-                'read_more'     => esc_html__('Read More','nexas'),
+                'read_more' => esc_html__('Read More','nexas'),
             );
 
             return $defaults;
@@ -157,9 +157,9 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
 
         public function update($new_instance, $old_instance)
         {
-            $instance = $old_instance;
-            $instance['cat_id'] = (isset( $new_instance['cat_id'] ) ) ? absint($new_instance['cat_id']) : '';
-            $instance['title'] = sanitize_text_field( $new_instance['title'] );
+            $instance              = $old_instance;
+            $instance['cat_id']    = (isset( $new_instance['cat_id'] ) ) ? absint($new_instance['cat_id']) : '';
+            $instance['title']     = sanitize_text_field( $new_instance['title'] );
             $instance['sub_title'] = sanitize_text_field( $new_instance['sub_title'] );
             $instance['read_more'] = sanitize_text_field( $new_instance['read_more'] );
 
@@ -169,11 +169,11 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
 
         public function form( $instance )
         {
-            $instance = wp_parse_args( (array ) $instance, $this->defaults() );
-            $catid = absint( $instance['cat_id'] );
-            $title = esc_attr( $instance['title'] );
-            $subtitle =  esc_attr( $instance['sub_title'] );
-            $read_more =  esc_attr( $instance['read_more'] );
+            $instance  = wp_parse_args( (array ) $instance, $this->defaults() );
+            $catid     = absint( $instance['cat_id'] );
+            $title     = esc_attr( $instance['title'] );
+            $subtitle  = esc_attr( $instance['sub_title'] );
+            $read_more = esc_attr( $instance['read_more'] );
 
             ?>
 

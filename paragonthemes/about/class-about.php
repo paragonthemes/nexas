@@ -122,7 +122,7 @@ if ( ! class_exists( 'Nexas_About' ) ) {
 			$this->page_name     = isset( $this->config['page_name'] ) ? $this->config['page_name'] : sprintf( esc_html__( 'About %s', 'nexas' ), $this->theme_name );
 			$this->tabs          = isset( $this->config['tabs'] ) ? $this->config['tabs'] : array();
 			$this->page_slug     = $this->theme_slug . '-about';
-			$this->page_url     = admin_url( 'themes.php?page=' . $this->page_slug );
+			$this->page_url      = admin_url( 'themes.php?page=' . $this->page_slug );
 			$this->notice        = '<p style="font-size:17px;">' . sprintf( esc_html__( 'Welcome! Thank you for choosing %1$s Theme. To take the advantage of our theme,Please make sure to visit theme info page.', 'nexas' ), esc_html( $this->theme_name ) ) . '</p><p><a href="' . esc_url( $this->page_url ) . '" class="button button-primary">' . sprintf( esc_html__( 'Get started with %1$s', 'nexas' ), $this->theme_name ) . '</a><a href="#" class="btn-dismiss" data-hello="world" data-userid="' . esc_attr( get_current_user_id() ) . '" data-nonce="' . esc_attr( wp_create_nonce( 'nexas_dismiss_nonce' ) ) . '">' . esc_html__( 'Dismiss this notice', 'nexas' ) . '</a></p>';
 		}
 

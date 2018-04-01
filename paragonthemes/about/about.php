@@ -105,7 +105,7 @@ if ( ! function_exists( 'nexas_about_setup' ) ) :
 				),
 
 			// Useful plugins.
-			'useful_plugins' => array(
+			'useful_plugins'  => array(
 				'description' => esc_html__( 'Theme supports some helpful WordPress plugins to enhance your site.Please click Manage Plugins button below to enable those plugins which you need in your site,if those plugin are not Install.', 'nexas' ),
 				),
 

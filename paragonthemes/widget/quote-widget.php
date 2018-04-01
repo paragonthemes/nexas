@@ -39,7 +39,7 @@ if (!class_exists('Nexas_Quote_Widget')) {
                             </div>
                             <div class="col-md-3">
                                 <?php
-                                if(!empty($button_text_link))
+                                if(!empty( $button_text_link) )
                                 {
                                 ?>
                                    <div class="section-0-btn-cont">
@@ -59,18 +59,18 @@ if (!class_exists('Nexas_Quote_Widget')) {
 
         public function update($new_instance, $old_instance)
         {
-            $instance = $old_instance;
-            $instance['title'] = sanitize_text_field($new_instance['title']);
-            $instance['button-text'] = sanitize_text_field( $new_instance['button-text']);
+            $instance                     = $old_instance;
+            $instance['title']            = sanitize_text_field($new_instance['title']);
+            $instance['button-text']      = sanitize_text_field( $new_instance['button-text']);
             $instance['button-text-link'] = esc_url_raw( $new_instance['button-text-link']);
             return $instance;
         }
 
         public function form($instance)
         {
-            $instance = wp_parse_args( (array ) $instance, $this->defaults() );
-            $title = sanitize_text_field( $instance['title']  );
-            $button_text = sanitize_text_field( $instance['button-text'] );
+            $instance         = wp_parse_args( (array ) $instance, $this->defaults() );
+            $title            = sanitize_text_field( $instance['title']  );
+            $button_text      = sanitize_text_field( $instance['button-text'] );
             $button_text_link = esc_url( $instance['button-text-link'] );
 
             ?>

@@ -12,11 +12,11 @@ $description_length = nexas_get_option( 'nexas_description_length_option') ;
 $readme_text        = nexas_get_option( 'nexas_read_more_text_blog_archive_option');
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-     <div   class="section-14-box wow fadeInUp <?php if(!has_post_thumbnail()) { echo "no-image"; } ?>">
+     <div   class="section-14-box wow fadeInUp <?php if( !has_post_thumbnail() ) { echo "no-image"; } ?>">
             <figure>
                 <?php
-                if(has_post_thumbnail()) {
-                    the_post_thumbnail('full', array('class' => 'img-responsive'));
+                if( has_post_thumbnail() ) {
+                    the_post_thumbnail('full', array('class' => 'img-responsive') );
                 }
                 ?>
             </figure>
@@ -39,24 +39,24 @@ $readme_text        = nexas_get_option( 'nexas_read_more_text_blog_archive_optio
 
                <?php
                echo "<p>";
-               if($description_from=='content')
+               if( $description_from == 'content' )
                {
-                   echo esc_html( wp_trim_words(get_the_content(),$description_length) );
+                   echo esc_html( wp_trim_words( get_the_content(),$description_length) );
                }
                else
                {
-                   echo esc_html( wp_trim_words(get_the_excerpt(),$description_length) );
+                   echo esc_html( wp_trim_words( get_the_excerpt(),$description_length) );
                }
                echo "</p>";
                ?>
 
               <!--read more-->
                  <?php 
-                  if(!empty($readme_text))
+                  if( !empty( $readme_text) )
                   {
                  ?>
                       <div class="text-left">
-                          <a href="<?php the_permalink(); ?>" class="btn btn-primary"><?php  echo esc_html($readme_text); ?></a>
+                          <a href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo esc_html( $readme_text ); ?></a>
                       </div>
                <?php }
 

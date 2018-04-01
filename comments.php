@@ -15,7 +15,7 @@
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
  */
-if (post_password_required()) {
+if ( post_password_required() ) {
     return;
 }
 ?>
@@ -24,12 +24,12 @@ if (post_password_required()) {
 
     <?php
     // You can start editing here -- including this comment!
-    if (have_comments()) : ?>
+    if ( have_comments() ) : ?>
         <h2 class="comments-title">
             <?php
 
             $comments_number = get_comments_number();
-            if ('1' === $comments_number) {
+            if ( '1' === $comments_number ) {
                 /* translators: %s: post title */
                 printf(_x('One Reply to &ldquo;%s&rdquo;', 'comments title', 'nexas'), get_the_title());
             } else {
@@ -40,7 +40,7 @@ if (post_password_required()) {
                         '%1$s Replies to &ldquo;%2$s&rdquo;',
                         $comments_number,
                         'comments title', 'nexas'),
-                    number_format_i18n($comments_number),
+                    number_format_i18n( $comments_number ),
                     get_the_title()
                 );
             }
@@ -50,7 +50,7 @@ if (post_password_required()) {
 
         <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : // Are there comments to navigate through? ?>
             <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-                <h2 class="screen-reader-text"><?php esc_html_e('Comment navigation', 'nexas'); ?></h2>
+                <h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'nexas'); ?></h2>
                 <div class="nav-links">
 
                     <div class="nav-previous">

@@ -8,11 +8,9 @@
  * @subpackage Nexas
  */
 get_header();
-$nexas_designlayout      = nexas_get_option('nexas_sidebar_layout_option');
-
-
+$nexas_designlayout      = nexas_get_option( 'nexas_sidebar_layout_option' );
  ?>    
-    <section id="inner-title" class="inner-title"  <?php echo $header_style; ?>>
+    <section id="inner-title" class="inner-title" >
         
         <div class="container">
         

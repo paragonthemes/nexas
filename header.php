@@ -92,14 +92,14 @@
                     if (has_nav_menu('primary')) {
                    
                         wp_nav_menu(array(
-                                'theme_location' => 'primary',
-                                'depth' => 4,
-                                'container' => 'div',
+                                'theme_location'  => 'primary',
+                                'depth'           => 4,
+                                'container'       => 'div',
                                 'container_class' => 'collapse navbar-collapse',
-                                'container_id' => 'bs-example-navbar-collapse-1',
-                                'menu_class' => 'nav navbar-nav navbar-right',
-                                'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-                                'walker' => new WP_Bootstrap_Navwalker()
+                                'container_id'    => 'bs-example-navbar-collapse-1',
+                                'menu_class'      => 'nav navbar-nav navbar-right',
+                                'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                                'walker'          => new WP_Bootstrap_Navwalker()
                             )
                         );
                     }

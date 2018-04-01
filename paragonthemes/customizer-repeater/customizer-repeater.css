@@ -1,14 +1,14 @@
 /**
 * Font Awesome Icon Lists CSS
 */
-.at-customize-icons .icons-list-wrapper{
+.pt-customize-icons .icons-list-wrapper{
     height: 180px;
     overflow-y: scroll;
     background: #fff;
     border: 1px solid #ccc;
     width: 100%;
 }
-.at-customize-icons .icons-list-wrapper span{
+.pt-customize-icons .icons-list-wrapper span{
     display: block;
     float: left;
     padding: 14px;
@@ -18,8 +18,8 @@
     text-align: center;
     border-radius: 50%;
 }
-.at-customize-icons .icons-list-wrapper span:hover,
-.at-customize-icons .icons-list-wrapper span.selected {
+.pt-customize-icons .icons-list-wrapper span:hover,
+.pt-customize-icons .icons-list-wrapper span.selected {
     background: #2d2d2d;
     color: #fff;
 }

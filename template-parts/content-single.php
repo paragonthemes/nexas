@@ -16,7 +16,7 @@ $hide_show_feature_image = nexas_get_option( 'nexas_show_feature_image_single_op
         <figure>
        
             <?php
-            if(has_post_thumbnail() && $hide_show_feature_image=="show") {
+            if( has_post_thumbnail() && $hide_show_feature_image=="show" ) {
             ?>
                 <?php the_post_thumbnail( 'full' ); ?>
 

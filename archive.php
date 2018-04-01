@@ -10,7 +10,7 @@
 get_header(); 
 $nexas_designlayout      = nexas_get_option( 'nexas_sidebar_layout_option' );
 ?>
-    <section id="inner-title" class="inner-title"  <?php echo $header_style; ?>>
+    <section id="inner-title" class="inner-title" >
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
@@ -33,9 +33,9 @@ $nexas_designlayout      = nexas_get_option( 'nexas_sidebar_layout_option' );
                     echo "9";
                 } ?> left-block">
                     <?php
-                    if (have_posts()) :
+                    if ( have_posts() ) :
                         /* Start the Loop */
-                        while (have_posts()) : the_post();
+                        while ( have_posts() ) : the_post();
 
                             /*
                              * Include the Post-Format-specific template for the content.
@@ -55,7 +55,7 @@ $nexas_designlayout      = nexas_get_option( 'nexas_sidebar_layout_option' );
                     endif; ?>
 
                 </div><!--div -->
-                <?php if ($nexas_designlayout != 'no-sidebar') { ?>
+                <?php if ( $nexas_designlayout != 'no-sidebar' ) { ?>
                   
                     <div class="col-md-3">
 

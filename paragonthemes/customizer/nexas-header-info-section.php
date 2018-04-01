@@ -8,7 +8,7 @@ $wp_customize->add_section(
     array(
         'priority'   => 1,
         'capability' => 'edit_theme_options',
-        'panel'    => 'nexas_theme_options',
+        'panel'      => 'nexas_theme_options',
         'title'      => esc_html__('Top Header Info', 'nexas'),
     )
 );

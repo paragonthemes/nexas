@@ -1,11 +1,11 @@
 /*repeater field title*/
-.at-repeater,
-.at-repeater-field-control-wrap{
+.pt-repeater,
+.pt-repeater-field-control-wrap{
     background: #fefefe;
     border: 1px solid #e5e5e5;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
-.at-repeater-top {
+.pt-repeater-top {
     padding: 0;
     cursor: move;
     background: #fafafa none repeat scroll 0 0;
@@ -16,8 +16,8 @@
     border: 1px solid #e5e5e5;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
-.at-repeater-title h3,
-.at-repeater-title h4 {
+.pt-repeater-title h3,
+.pt-repeater-title h4 {
     -moz-user-select: none;
     font-size: 1em;
     line-height: 1;
@@ -27,11 +27,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.at-repeater-title-action {
+.pt-repeater-title-action {
     float: right;
     position: relative;
 }
-.at-repeater-action {
+.pt-repeater-action {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border: 0 none;
     cursor: pointer;
@@ -40,7 +40,7 @@
     padding: 10px;
     color: #555d66;
 }
-.at-repeater-action .at-toggle-indicator:before{
+.pt-repeater-action .pt-toggle-indicator:before{
     border-radius: 50%;
     padding: 1px 2px 1px 0;
     display: block;
@@ -52,10 +52,10 @@
 .repeater-field-control{
     margin: 0 auto 10px;
 }
-.repeater-table.open .at-repeater-action .at-toggle-indicator:before{
+.repeater-table.open .pt-repeater-action .pt-toggle-indicator:before{
     content: "\f142";
 }
-.at-repeater-inside,
+.pt-repeater-inside,
 .repeater-fields{
     line-height: 16px;
     padding: 10px 15px 15px;
@@ -63,7 +63,7 @@
     border: 1px solid #e5e5e5;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
-.at-sortable-placeholder {
+.pt-sortable-placeholder {
     border: 1px dashed #b4b9be;
     margin: 0 auto 10px;
     height: 45px;

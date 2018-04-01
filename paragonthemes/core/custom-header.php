@@ -30,11 +30,11 @@ if (!function_exists('nexas_custom_header_setup')) :
         )));
     }
 
-    add_action('after_setup_theme', 'nexas_custom_header_setup');
+    add_action( 'after_setup_theme', 'nexas_custom_header_setup' );
 
 endif;
 
-if (!function_exists('nexas_header_style')) :
+if ( !function_exists('nexas_header_style') ) :
     /**
      * Styles the header image and text displayed on the blog.
      *

@@ -36,8 +36,8 @@ if ( $nexas_slider_section_option != 'hide' ) {
             }
         }
         if( !empty( $post_in )) :
-            $nexas_slider_page_args = array(
-                'post__in'         => $post_in,
+            $nexas_slider_page_args   = array(
+                'post__in'            => $post_in,
                 'orderby'             => 'post__in',
                 'posts_per_page'      => count( $post_in ),
                 'post_type'           => 'page',

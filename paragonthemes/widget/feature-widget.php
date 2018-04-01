@@ -15,7 +15,7 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
             /*defaults values for fields*/
             $defaults = array(
                  'features_page_items' => '',
-                 'features_title' => esc_html__('CORE FEATURES', 'nexas'),
+                 'features_title'      => esc_html__('CORE FEATURES', 'nexas'),
                  'features_background' => ''
             );
             return $defaults;
@@ -55,7 +55,7 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
                 /*default values*/
              
                 $features_title = apply_filters( 'widget_title', !empty( $instance['features_title'] ) ? esc_html( $instance['features_title'] ) : '', $instance, $this->id_base);
-                $features_page_items    = $instance['features_page_items'];
+                $features_page_items  = $instance['features_page_items'];
                 $features_background  = esc_url($instance['features_background']);
 
                 echo $args['before_widget'];
@@ -69,17 +69,17 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
                             </div>
                             <div class="col-lg-6 col-md-12 col-xs-12">
                                 <div class="section-margine">
-                                    <?php if(!empty($features_title)) { ?>
+                                    <?php if(!empty( $features_title ) ) { ?>
                                     <div class="feature-title">
                                         <div class="sec-title two">
-                                            <h2><?php echo esc_html($features_title);?></h2>
+                                            <h2><?php echo esc_html( $features_title );?></h2>
                                             <div class="border left"></div>
                                         </div>
                                     </div>
                                     <?php } ?>
                                                           <?php
                         $post_in = array();
-                        if  (count($features_page_items) > 0 && is_array($features_page_items) ){
+                        if  ( count( $features_page_items ) > 0 && is_array( $features_page_items ) ){
                             foreach ( $features_page_items as $features ){
                                 if( isset( $features['page_id'] ) && !empty( $features['page_id'] ) ){
                                     $post_in[] = $features['page_id'];
@@ -88,7 +88,7 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
                         }
                         if( !empty( $post_in )) :
                             $features_page_args = array(
-                                    'post__in'         => $post_in,
+                                    'post__in'            => $post_in,
                                     'orderby'             => 'post__in',
                                     'posts_per_page'      => count( $post_in ),
                                     'post_type'           => 'page',
@@ -191,7 +191,7 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
             <label><?php _e( 'Select Pages', 'nexas' ); ?>:</label>
             <br/>
             <small><?php _e( 'Add Page, Reorder and Remove. Please do not forget to add Icon and Excerpt  on selected pages.', 'nexas' ); ?></small>
-            <div class="at-repeater">
+            <div class="pt-repeater">
                 <?php
                 $total_repeater = 0;
                 if  (count($features_page_items) > 0 && is_array($features_page_items) ){
@@ -200,36 +200,36 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
                         $repeater_name  = $this->get_field_name( 'features_page_items' ).'['.$total_repeater.']['.'page_id'.']';
                         ?>
                         <div class="repeater-table">
-                            <div class="at-repeater-top">
-                                <div class="at-repeater-title-action">
-                                    <button type="button" class="at-repeater-action">
-                                        <span class="at-toggle-indicator" aria-hidden="true"></span>
+                            <div class="pt-repeater-top">
+                                <div class="pt-repeater-title-action">
+                                    <button type="button" class="pt-repeater-action">
+                                        <span class="pt-toggle-indicator" aria-hidden="true"></span>
                                     </button>
                                 </div>
-                                <div class="at-repeater-title">
-                                    <h3><?php _e( 'Select Item', 'nexas' )?><span class="in-at-repeater-title"></span></h3>
+                                <div class="pt-repeater-title">
+                                    <h3><?php _e( 'Select Item', 'nexas' )?><span class="in-pt-repeater-title"></span></h3>
                                 </div>
                             </div>
-                            <div class='at-repeater-inside hidden'>
+                            <div class='pt-repeater-inside hidden'>
                                 <?php
                                 /* see more here https://codex.wordpress.org/Function_Reference/wp_dropdown_pages*/
                                 $args = array(
                                     'selected'         => $about['page_id'],
                                     'name'             => $repeater_name,
                                     'id'               => $repeater_id,
-                                    'class'            => 'widefat at-select',
+                                    'class'            => 'widefat pt-select',
                                     'show_option_none' => __( 'Select Page', 'nexas'),
-                                    'option_none_value'     => 0 // string
+                                    'option_none_value'=> 0 // string
                                 );
                                 wp_dropdown_pages( $args );
                                 ?>
-                                <div class="at-repeater-control-actions">
-                                    <button type="button" class="button-link button-link-delete at-repeater-remove"><?php _e('Remove','nexas');?></button> |
-                                    <button type="button" class="button-link at-repeater-close"><?php _e('Close','nexas');?></button>
+                                <div class="pt-repeater-control-actions">
+                                    <button type="button" class="button-link button-link-delete pt-repeater-remove"><?php _e('Remove','nexas');?></button> |
+                                    <button type="button" class="button-link pt-repeater-close"><?php _e('Close','nexas');?></button>
                                     <?php
                                     if( get_edit_post_link( $about['page_id'] ) ){
                                         ?>
-                                        <a class="button button-link at-postid alignright" target="_blank" href="<?php echo esc_url( get_edit_post_link( $about['page_id'] ) ); ?>">
+                                        <a class="button button-link pt-postid alignright" target="_blank" href="<?php echo esc_url( get_edit_post_link( $about['page_id'] ) ); ?>">
                                             <?php _e('Full Edit','nexas');?>
                                         </a>
                                         <?php
@@ -246,34 +246,34 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
                 $repeater_id  = $this->get_field_id( 'features_page_items') .$coder_repeater_depth.'page_id';
                 $repeater_name  = $this->get_field_name( 'features_page_items' ).'['.$coder_repeater_depth.']['.'page_id'.']';
                 ?>
-                <script type="text/html" class="at-code-for-repeater">
+                <script type="text/html" class="pt-code-for-repeater">
                     <div class="repeater-table">
-                        <div class="at-repeater-top">
-                            <div class="at-repeater-title-action">
-                                <button type="button" class="at-repeater-action">
-                                    <span class="at-toggle-indicator" aria-hidden="true"></span>
+                        <div class="pt-repeater-top">
+                            <div class="pt-repeater-title-action">
+                                <button type="button" class="pt-repeater-action">
+                                    <span class="pt-toggle-indicator" aria-hidden="true"></span>
                                 </button>
                             </div>
-                            <div class="at-repeater-title">
-                                <h3><?php _e( 'Select Item', 'nexas' )?><span class="in-at-repeater-title"></span></h3>
+                            <div class="pt-repeater-title">
+                                <h3><?php _e( 'Select Item', 'nexas' )?><span class="in-pt-repeater-title"></span></h3>
                             </div>
                         </div>
-                        <div class='at-repeater-inside hidden'>
+                        <div class='pt-repeater-inside hidden'>
                             <?php
                             /* see more here https://codex.wordpress.org/Function_Reference/wp_dropdown_pages*/
                             $args = array(
-                                'selected'         => '',
-                                'name'             => $repeater_name,
-                                'id'               => $repeater_id,
-                                'class'            => 'widefat at-select',
-                                'show_option_none' => __( 'Select Page', 'nexas'),
-                                'option_none_value'     => 0 // string
+                                'selected'          => '',
+                                'name'              => $repeater_name,
+                                'id'                => $repeater_id,
+                                'class'             => 'widefat pt-select',
+                                'show_option_none'  => __( 'Select Page', 'nexas'),
+                                'option_none_value' => 0 // string
                             );
                             wp_dropdown_pages( $args );
                             ?>
-                            <div class="at-repeater-control-actions">
-                                <button type="button" class="button-link button-link-delete at-repeater-remove"><?php _e('Remove','nexas');?></button> |
-                                <button type="button" class="button-link at-repeater-close"><?php _e('Close','nexas');?></button>
+                            <div class="pt-repeater-control-actions">
+                                <button type="button" class="button-link button-link-delete pt-repeater-remove"><?php _e('Remove','nexas');?></button> |
+                                <button type="button" class="button-link pt-repeater-close"><?php _e('Close','nexas');?></button>
                             </div>
                         </div>
                     </div>
@@ -281,9 +281,9 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
                 </script>
                 <?php
                 /*most imp for repeater*/
-                echo '<input class="at-total-repeater" type="hidden" value="'.$total_repeater.'">';
+                echo '<input class="pt-total-repeater" type="hidden" value="'.$total_repeater.'">';
                 $add_field = __('Add Item', 'nexas');
-                echo '<span class="button-primary at-add-repeater" id="'.$coder_repeater_depth.'">'.$add_field.'</span><br/>';
+                echo '<span class="button-primary pt-add-repeater" id="'.$coder_repeater_depth.'">'.$add_field.'</span><br/>';
                 ?>
             </div>
             <!--updated code-->
