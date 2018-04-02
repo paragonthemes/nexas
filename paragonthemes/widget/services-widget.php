@@ -124,7 +124,7 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
                                                         </div>
                                                         <div class="section-4-box-text-cont">
                                                             <a href="<?php the_permalink();?>"><h5><?php the_title(); ?></h5></a>
-                                                            <p><?php echo esc_html( wp_trim_words( get_the_content(), 16) ); ?></p>
+                                                            <p><?php echo the_excerpt(); ?></p>
                                                         </div>
                                                     </div>
                                                 </div>

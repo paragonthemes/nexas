@@ -175,7 +175,7 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
                                                                     <i class="fa fa-link" aria-hidden="true"></i>
                                                                 </a>
                                                                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                                                <p><?php echo esc_html( wp_trim_words( get_the_content(), 5) ); ?></p>
+                                                                <p><?php the_excerpt(); ?></p>
                                                             </div>
                                                         </div>
                                                     </div>

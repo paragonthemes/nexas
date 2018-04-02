@@ -132,7 +132,7 @@ if (!class_exists('Nexas_Recent_Post_Widget')) {
                                                         <?php the_author(); ?>
                                                     </a>
                                                 </div>
-                                                <p><?php echo esc_html( wp_trim_words( get_the_content(), 20 ) ); ?></p>
+                                                <p><?php the_excerpt(); ?></p>
                                                 <?php if(!empty($read_more)){ ?>
                                                 <a href="<?php the_permalink(); ?>" class="btn btn-primary">
                                                     <?php echo esc_html($read_more); ?>

@@ -289,7 +289,7 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
 	                                    <div class="entry-box">
 	                                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 	                                      
-	                                        <p><?php echo esc_html( wp_trim_words( get_the_content(), 20 ) ); ?></p>
+	                                        <p><?php the_excerpt(); ?></p>
 	                                        <?php if(!empty($read_more)){ ?>
 	                                        <a href="<?php the_permalink(); ?>" class="btn btn-primary">
 	                                            <?php echo esc_html($read_more); ?>

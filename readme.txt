@@ -60,6 +60,8 @@ Nexas is distributed under the terms of the GNU General Public License v2
 
 
 #### Image used in screenshot ####
+* https://www.pexels.com/de/foto/arbeit-arbeitsplatz-ausbildung-bildschirm-454507/
+* https://pixabay.com/en/computer-browser-research-study-2562651/
 
 #### Other Images: ####
  * default-sidebar.png
