@@ -16,7 +16,6 @@ private function defaults()
 {
 
 $defaults = array(
-'testimonials_page_items' => '',
 'bg_image' => '',
 );
 
@@ -27,7 +26,7 @@ public function __construct()
 
 {
 parent::__construct(
-'nexas-testimonial-widget',
+'nexas_testimonial_widget',
 esc_html__( 'Nexas Testimonial Widget', 'nexas' ),
 array('description' => esc_html__( 'Nexas Testimonial Section', 'nexas' ) )
 );
@@ -39,13 +38,13 @@ public function widget($args, $instance)
 
 if (!empty($instance)) {
 $instance = wp_parse_args((array )$instance, $this->defaults());
-$testimonials_page_items    = $instance['testimonials_page_items'];
 $bg_image  = esc_url($instance['bg_image']);
+$features = ( ! empty( $instance['features'] ) ) ? $instance['features'] : array();
 echo $args['before_widget'];
 
     ?>
     <section id="section8" class="section-8 testimonials" style="background: url(<?php echo $bg_image; ?>) no-repeat center;">
-        
+      <?php if (isset($features)) : ?>     
         <div class="overley section-margine">
         
           <div class="container">
@@ -58,13 +57,23 @@ echo $args['before_widget'];
                             <!-- Quote 1 -->
                             <?php
                         $post_in = array();
-                        if  (count($testimonials_page_items) > 0 && is_array($testimonials_page_items) ){
-                            foreach ( $testimonials_page_items as $features ){
-                                if( isset( $features['page_id'] ) && !empty( $features['page_id'] ) ){
-                                    $post_in[] = $features['page_id'];
-                                }
+                       
+                        if  (count($features) > 0 && is_array($features) ){
+
+                              $post_in[0] = $features['main'];
+                              
+                            foreach ( $features as $our_testimonial ){
+                                  
+                                if( isset( $our_testimonial['page_ids'] ) && !empty( $our_testimonial['page_ids'] ) ){
+                                    
+                                       $post_in[] = $our_testimonial['page_ids'];
+                                    
+                                    }
                             }
+
+                
                         }
+
                         if( !empty( $post_in )) :
                             $testimonials_page_args = array(
                                     'post__in'            => $post_in,
@@ -138,6 +147,7 @@ echo $args['before_widget'];
             </div>
         </div>
         </div>
+     <?php endif; ?>           
     </section>
     <?php
 echo $args['after_widget'];
@@ -149,132 +159,96 @@ public function update( $new_instance, $old_instance )
 $instance             = $old_instance;
 $instance['bg_image'] = esc_url_raw($new_instance['bg_image']);
 
-/*updated code*/
-            $page_ids = array();
-            if( isset($new_instance['testimonials_page_items'] )){
-                $testimonials_page_items    = $new_instance['testimonials_page_items'];
-                if  (count($testimonials_page_items) > 0 && is_array($testimonials_page_items) ){
-                    foreach ($testimonials_page_items as $key=>$about ){
-                        $page_ids[$key]['page_id'] = absint( $about['page_id'] );
-                    }
-                }
-            }
-            $instance['testimonials_page_items'] = $page_ids;
-return $instance;
+if (isset($new_instance['features']))
+   
+    {
+        foreach($new_instance['features'] as $feature){
+          
+          $feature['page_ids'] = absint($feature['page_ids']);
+        }
+        $instance['features'] = $new_instance['features'];
+    }
+            
+ return $instance;
+
 }
 
 public function form( $instance )
 {
 $instance  = wp_parse_args( (array )$instance, $this->defaults() );
-$testimonials_page_items      = $instance['testimonials_page_items'];
 $bgimage   = esc_url( $instance['bg_image'] );
-?>
+$features     = ( ! empty( $instance['features'] ) ) ? $instance['features'] : array(); 
 
-<p>
+?>
+   <span class="pt-nexas-additional">
+     
 <!--updated code-->
             <label><?php _e( 'Select Pages', 'nexas' ); ?>:</label>
             <br/>
             <small><?php _e( 'Add Page, Reorder and Remove. Please do not forget to add Icon and Excerpt  on selected pages.', 'nexas' ); ?></small>
-            <div class="pt-repeater">
-                <?php
-                $total_repeater = 0;
-                if  (count($testimonials_page_items) > 0 && is_array($testimonials_page_items) ){
-                    foreach ($testimonials_page_items as $about){
-                        $repeater_id  = $this->get_field_id( 'testimonials_page_items') .$total_repeater.'page_id';
-                        $repeater_name  = $this->get_field_name( 'testimonials_page_items' ).'['.$total_repeater.']['.'page_id'.']';
+            <?php
+
+                $repeater_id   = $this->get_field_id( 'features' ).'-main';
+                $repeater_name = $this->get_field_name( 'features'). '[main]';
+
+                $args = array(
+                    'selected'          => $features['main'],
+                    'name'              => $repeater_name,
+                    'id'                => $repeater_id,
+                    'class'             => 'widefat pt-select',
+                    'show_option_none'  => __( 'Select Page', 'nexas'),
+                    'option_none_value' => 0 // string
+                );
+                wp_dropdown_pages( $args );
+              ?>
+
+               <?php
+           
+            $counter = 0;
+
+           
+           
+            if ( count( $features ) > 0 ) {
+                foreach( $features as $feature ) {
+
+                    if ( isset( $feature['page_ids'] ) ) { ?>
+                      <div class="pt-nexas-sec">
+      
+                      <?php
+    
+                        $repeater_id     = $this->get_field_id( 'features' ) .'-'. $counter.'-page_ids';
+                        $repeater_name   = $this->get_field_name( 'features' ) . '['.$counter.'][page_ids]';
+
+                        $args = array(
+                            'selected'          => $feature['page_ids'],
+                            'name'              => $repeater_name,
+                            'id'                => $repeater_id,
+                            'class'             => 'widefat pt-select',
+                            'show_option_none'  => __( 'Select Page', 'nexas'),
+                            'option_none_value' => 0 // string
+                        );
+                        wp_dropdown_pages( $args );
                         ?>
-                        <div class="repeater-table">
-                            <div class="pt-repeater-top">
-                                <div class="pt-repeater-title-action">
-                                    <button type="button" class="pt-repeater-action">
-                                        <span class="pt-toggle-indicator" aria-hidden="true"></span>
-                                    </button>
-                                </div>
-                                <div class="pt-repeater-title">
-                                    <h3><?php _e( 'Select Item', 'nexas' )?><span class="in-pt-repeater-title"></span></h3>
-                                </div>
-                            </div>
-                            <div class='pt-repeater-inside hidden'>
-                                <?php
-                                /* see more here https://codex.wordpress.org/Function_Reference/wp_dropdown_pages*/
-                                $args = array(
-                                    'selected'         => $about['page_id'],
-                                    'name'             => $repeater_name,
-                                    'id'               => $repeater_id,
-                                    'class'            => 'widefat pt-select',
-                                    'show_option_none' => __( 'Select Page', 'nexas'),
-                                    'option_none_value'     => 0 // string
-                                );
-                                wp_dropdown_pages( $args );
-                                ?>
-                                <div class="pt-repeater-control-actions">
-                                    <button type="button" class="button-link button-link-delete pt-repeater-remove"><?php _e('Remove','nexas');?></button> |
-                                    <button type="button" class="button-link pt-repeater-close"><?php _e('Close','nexas');?></button>
-                                    <?php
-                                    if( get_edit_post_link( $about['page_id'] ) ){
-                                        ?>
-                                        <a class="button button-link pt-postid alignright" target="_blank" href="<?php echo esc_url( get_edit_post_link( $about['page_id'] ) ); ?>">
-                                            <?php _e('Full Edit','nexas');?>
-                                        </a>
-                                        <?php
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        $total_repeater = $total_repeater + 1;
-                    }
+
+                        <a class="pt-nexas-remove delete"><?php esc_html_e('Remove Section','nexas') ?></a>
+                      </div>
+                      <?php
+                      $counter++;
+                   }
                 }
-                $coder_repeater_depth = 'coderRepeaterDepth_'.'0';
-                $repeater_id  = $this->get_field_id( 'testimonials_page_items') .$coder_repeater_depth.'page_id';
-                $repeater_name  = $this->get_field_name( 'testimonials_page_items' ).'['.$coder_repeater_depth.']['.'page_id'.']';
-                ?>
-                <script type="text/html" class="pt-code-for-repeater">
-                    <div class="repeater-table">
-                        <div class="pt-repeater-top">
-                            <div class="pt-repeater-title-action">
-                                <button type="button" class="pt-repeater-action">
-                                    <span class="pt-toggle-indicator" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                            <div class="pt-repeater-title">
-                                <h3><?php _e( 'Select Item', 'nexas' )?><span class="in-pt-repeater-title"></span></h3>
-                            </div>
-                        </div>
-                        <div class='pt-repeater-inside hidden'>
-                            <?php
-                            /* see more here https://codex.wordpress.org/Function_Reference/wp_dropdown_pages*/
-                            $args = array(
-                                'selected'         => '',
-                                'name'             => $repeater_name,
-                                'id'               => $repeater_id,
-                                'class'            => 'widefat pt-select',
-                                'show_option_none' => __( 'Select Page', 'nexas'),
-                                'option_none_value'     => 0 // string
-                            );
-                            wp_dropdown_pages( $args );
-                            ?>
-                            <div class="pt-repeater-control-actions">
-                                <button type="button" class="button-link button-link-delete pt-repeater-remove"><?php _e('Remove','nexas');?></button> |
-                                <button type="button" class="button-link pt-repeater-close"><?php _e('Close','nexas');?></button>
-                            </div>
-                        </div>
-                    </div>
+            }
 
-                </script>
-                <?php
-                /*most imp for repeater*/
-                echo '<input class="pt-total-repeater" type="hidden" value="'.$total_repeater.'">';
-                $add_field = __('Add Item', 'nexas');
-                echo '<span class="button-primary pt-add-repeater" id="'.$coder_repeater_depth.'">'.$add_field.'</span><br/>';
-                ?>
-            </div>
-            <!--updated code-->
-</p>
-<hr>
+            ?>
 
-<p>
+         </span>
+         <a class="pt-nexas-add button"><?php _e('Add New Section'); ?></a>   
+          
+    <hr>
+
+
+  
+
+  <p>
 <label for="<?php echo esc_attr( $this->get_field_id( 'bg_image' ) ); ?>">
     <?php esc_html_e( 'Background Image', 'nexas' ); ?>
 </label>

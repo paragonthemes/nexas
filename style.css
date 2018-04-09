@@ -4,7 +4,7 @@ Theme URI: https://paragonthemes.com/themes/nexas
 Author: paragonthemes
 Author URI: https://paragonthemes.com
 Description: Nexas is an attractive, modern, easy to use and responsive WordPress theme with colorful design and stunning flexibility. This theme is capable of tackling the overall needs of all nexas websites including business and others.  Nexas can also be used for business and corporate websites. The advanced theme options and available various widgets with drag and drop features will help to customize your site as your need.  Some of the available options are awesome slider section, header options, footer options, layout design options Color options, widget options, custom copyright options integrated social icons using menu, reset color option and lots of other available options will allow you to create unique website as you want. This theme will help you to create very high nexas website easily with no time at all.
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: nexas
@@ -1894,6 +1894,7 @@ hr {
     font-weight: 300;
     margin: 40px 0 15px;
     position: relative;
+    text-align: center;
 }
 .testimonials .content sup{
     position: absolute;
@@ -1915,6 +1916,7 @@ hr {
 .testimonials .content ul {
     margin: 15px 0px;
     padding: 0;
+    text-align: center;
 }
 .testimonials .content ul li {
     color: #ec5538;
@@ -1925,6 +1927,10 @@ hr {
     font-weight: bold;
     margin-bottom: 15px;
     text-transform: uppercase;
+    text-align: center;
+}
+.testimonials .content .rating {
+    text-align: center;
 }
 .testimonials .content {
     margin-bottom: 30px;

@@ -98,6 +98,17 @@ function nexas_sanitize_multiple_category( $values ) {
 
 endif;
 
+/**
+ * remove [..] from excerpt
+ * =====================================
+ */
+function nexas_excerpt_more( $more ) {
+    if( is_admin() ){
+     return '';
+    }
+}
+add_filter('excerpt_more', 'nexas_excerpt_more');
+
 
 /**
  * Load Metabox file

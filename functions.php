@@ -347,3 +347,30 @@ if ($dynamic_css_options == "do-not-reset" || $dynamic_css_options == "") {
 } elseif ($dynamic_css_options == "reset-all") {
     do_action('nexas_colors_reset');
 }
+
+
+
+
+
+
+if ( ! function_exists('nexas_wp_pages_plucker') ) :
+
+    /**
+    * Sending pages with ids
+    */
+    function nexas_wp_pages_plucker()
+    {
+        $pages = get_pages(
+            array (
+                'parent'  => 0, // replaces 'depth' => 1,
+            )
+        );
+
+        $ids = wp_list_pluck( $pages, 'post_title', 'ID' );
+
+        return wp_send_json($ids);
+    }
+
+endif;
+add_action( 'wp_ajax_nexas_wp_pages_plucker', 'nexas_wp_pages_plucker' );
+add_action( 'wp_ajax_nopriv_nexas_wp_pages_plucker', 'nexas_wp_pages_plucker' );
