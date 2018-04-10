@@ -22,7 +22,8 @@ if ( !is_home() ) {
     dynamic_sidebar( 'nexas-home-page' );
 }
 
-if ( 'posts' == get_option('show_on_front') ) {
+if ( 'posts' == get_option('show_on_front') ) 
+{
 
     include( get_home_template() );
 

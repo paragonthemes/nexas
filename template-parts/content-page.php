@@ -12,10 +12,12 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	 <div class="feature-image">
 	 	<?php
-	      if( has_post_thumbnail() ) {
+	      if( has_post_thumbnail() ) 
+	      {
 	          ?>
 	             <?php the_post_thumbnail( 'full' ); ?>
-	    	  <?php } ?>
+	    	  <?php 
+	      } ?>
 	 </div>
 
 	<div class="textcont">

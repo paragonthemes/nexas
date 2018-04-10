@@ -6,6 +6,9 @@
 if (!function_exists('nexas_widgets_backend_enqueue')) :
     function nexas_widgets_backend_enqueue($hook)
     {
+      if ('widgets.php' != $hook) {
+            return;
+        }
 
         wp_register_script('nexas-custom-widgets', get_template_directory_uri() . '/assets/js/widgets.js', array('jquery'), true);
         wp_enqueue_media();

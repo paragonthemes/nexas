@@ -65,6 +65,7 @@ $nexas_designlayout      = nexas_get_option( 'nexas_sidebar_layout_option' );
                 <?php if ($nexas_designlayout != 'no-sidebar') { ?>
                
                     <div class="col-md-3">
+                       
                         <?php get_sidebar(); ?>
                
                     </div>

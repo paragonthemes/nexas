@@ -29,11 +29,14 @@
         // Custom image.
         global $header_image, $header_style;
         $header_image = get_header_image();
-     
-        if( $header_image ){
+        if( $header_image )
+       
+        {
             $header_style = 'style="background-image: url('.esc_url( $header_image ).');background-size: cover;"';                 
 
-        } else{
+        }
+        else
+        {
 
             $header_style = '';
         }
@@ -54,13 +57,14 @@
                     </button>
                     <div class="site-branding">
                         <?php
-                        if (has_custom_logo()) { ?>
-                            <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
-                                <?php the_custom_logo(); ?>
-                            </a>
+                        if (has_custom_logo()) 
+                            { ?>
+                                <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
+                                    <?php the_custom_logo(); ?>
+                                </a>
                         <?php } else 
 
-                          {
+                        {
                             if (is_front_page() && is_home()) : ?>
                                 <h1 class="site-title">
                                     <a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
@@ -89,8 +93,8 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown" data-animations="fadeIn">
                     <?php
                    
-                    if (has_nav_menu('primary')) {
-                   
+                    if (has_nav_menu('primary')) 
+                    {
                         wp_nav_menu(array(
                                 'theme_location'  => 'primary',
                                 'depth'           => 4,

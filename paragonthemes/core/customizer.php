@@ -5,8 +5,6 @@
  * @package Paragon Themes
  * @subpackage Nexas
  */
-
-
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *

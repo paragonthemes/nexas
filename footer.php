@@ -13,15 +13,15 @@ $copyright = nexas_get_option('nexas_copyright');
 
 if ( is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active_sidebar('footer-3') || is_active_sidebar('footer-4') ) {
 
-        $count = 0;
-      
-        for ( $i = 1; $i <= 4; $i++ )
-            {
-              if ( is_active_sidebar( 'footer-' . $i ) )
-                    {
-                        $count++;
-                    }
-            }
+    $count = 0;
+  
+    for ( $i = 1; $i <= 4; $i++ )
+        {
+          if ( is_active_sidebar( 'footer-' . $i ) )
+                {
+                    $count++;
+                }
+        }
        
         $column = 3;
        
@@ -65,13 +65,11 @@ if ( is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active
                                 </div>
 
                             </div>
-                    <?php  }
+                 <?php  }
                      
                      }       
                      
                      ?>
-              
-                
                
             </div>
         </div>
@@ -96,7 +94,7 @@ if ( is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active
                         /* translators: 1: Theme name, 2: Theme author. */
                         printf( esc_html__( 'Theme: %1$s by %2$s', 'nexas' ), 'nexas', '<a href="http://paragonthemes.com">Paragon Themes</a>' );
                        ?></p>
-                </div>
+                    </div>
             </div>
       </div>
     </div>

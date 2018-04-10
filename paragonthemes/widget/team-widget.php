@@ -10,14 +10,18 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
 
 	class Nexas_Our_Team_Widget extends WP_Widget {
 		/*defaults values for fields*/
-		private $defaults = array(
-		
-			'title'      => '',
-			'sub_title'  => '',
-			'main'       =>'',
-			
-		);
 
+		 private function defaults()
+        {
+            /*defaults values for fields*/
+            $defaults    = array(
+                'title'      => '',
+				'sub_title'  => '',
+				'features'   =>'',
+            );
+            return $defaults;
+        }
+		
 		function __construct() {
 			parent::__construct(
 			/*Base ID of your widget*/
@@ -43,6 +47,11 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
 		 *
 		 */
 		public function widget( $args, $instance ) {
+
+		if (!empty( $instance ) ) 
+		{
+		
+			$instance = wp_parse_args( (array ) $instance, $this->defaults ());
 			
 			$title         = apply_filters( 'widget_title', ! empty( $instance['title'] ) ? $instance['title'] : '', $instance, $this->id_base );
 
@@ -54,7 +63,7 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
 			?>
 
              <section id="section14" class="section-margine section14">
-                <?php if (isset($features)) : ?>     
+                 <?php if (isset($features) && !empty($features['main'])) : ?>    
                     <div class="container">
                     
                         <div class="row">
@@ -161,13 +170,11 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
                     </div>
                  <?php endif; ?>        
              </section>
-
-
-            
+           
 			<?php
 			echo $args['after_widget'];
 		}
-
+    }
 
        /**
 		 * Function to Updating widget replacing old instances with new
@@ -183,35 +190,36 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
 		 */
 		public function update( $new_instance, $old_instance ) {
 			
-			$instance                  = $old_instance;
+			$instance              = $old_instance;
 
-			$instance['main']         = absint($new_instance['main']);
+			$instance['main']      = absint($new_instance['main']);
 		
-			$instance['title']         = sanitize_text_field( $new_instance['title'] );
+			$instance['title']     = sanitize_text_field( $new_instance['title'] );
 
-			$instance['sub_title']         = sanitize_text_field( $new_instance['sub_title'] );
+			$instance['sub_title'] = sanitize_text_field( $new_instance['sub_title'] );
 
 		
 			if (isset($new_instance['features']))
 		    {
-		    	foreach($new_instance['features'] as $feature){
+		    	foreach($new_instance['features'] as $feature)
+		    	{
 			      
 			      $feature['page_ids'] = absint($feature['page_ids']);
 			    }
+
 			    $instance['features'] = $new_instance['features'];
 		    }
 			
 			return $instance;
 		}
 
-
-
 		/*Widget Backend*/
 		public function form( $instance ) {
-			
-			$title                  = esc_attr( $instance['title'] );
-			$sub_title              = esc_attr( $instance['sub_title'] );
-            $features     = ( ! empty( $instance['features'] ) ) ? $instance['features'] : array(); 
+
+		    $instance      = wp_parse_args( (array ) $instance, $this->defaults() );
+			$title         = esc_attr( $instance['title'] );
+			$sub_title     = esc_attr( $instance['sub_title'] );
+            $features      = ( ! empty( $instance['features'] ) ) ? $instance['features'] : array(); 
 		
 			?>
            <span class="pt-nexas-additional">
@@ -230,12 +238,21 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
             <br/>
             <small><?php _e( 'Add Page and Remove. Please do not forget to add Icon and Excerpt  on selected pages.', 'nexas' ); ?></small>
             <?php
+              if  ( count( $features ) >=  1 && is_array( $features ) )
+               {
+               
+                    $selected = $features['main'];
+                }
+             else
+              {
+                $selected = "";
+              }
 
 		    	$repeater_id   = $this->get_field_id( 'features' ).'-main';
 				$repeater_name = $this->get_field_name( 'features'). '[main]';
 
 		    	$args = array(
-		            'selected'          => $features['main'],
+		            'selected'          => $selected,
 		            'name'              => $repeater_name,
 		            'id'                => $repeater_id,
 		            'class'             => 'widefat pt-select',
@@ -243,41 +260,37 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
 		            'option_none_value' => 0 // string
 		        );
 		        wp_dropdown_pages( $args );
-		      ?>
-
-		       <?php
+		        $counter = 0;
 		   
-		    $counter = 0;
+		    	if ( count( $features ) > 0 ) {
+		        	foreach( $features as $feature ) {
 
-		   
-		   
-		    if ( count( $features ) > 0 ) {
-		        foreach( $features as $feature ) {
+		            	if ( isset( $feature['page_ids'] ) ) 
+		            	{ ?>
+			              	<div class="pt-nexas-sec">
+		                       <?php
+			
+								$repeater_id     = $this->get_field_id( 'features' ) .'-'. $counter.'-page_ids';
+								$repeater_name   = $this->get_field_name( 'features' ) . '['.$counter.'][page_ids]';
 
-		            if ( isset( $feature['page_ids'] ) ) { ?>
-		              <div class="pt-nexas-sec">
-      
-                      <?php
-	
-						$repeater_id     = $this->get_field_id( 'features' ) .'-'. $counter.'-page_ids';
-						$repeater_name   = $this->get_field_name( 'features' ) . '['.$counter.'][page_ids]';
+				                $args = array(
+				                    'selected'          => $feature['page_ids'],
+				                    'name'              => $repeater_name,
+				                    'id'                => $repeater_id,
+				                    'class'             => 'widefat pt-select',
+				                    'show_option_none'  => __( 'Select Page', 'nexas'),
+				                    'option_none_value' => 0 // string
+				                );
+				                wp_dropdown_pages( $args );
+				                ?>
 
-		                $args = array(
-		                    'selected'          => $feature['page_ids'],
-		                    'name'              => $repeater_name,
-		                    'id'                => $repeater_id,
-		                    'class'             => 'widefat pt-select',
-		                    'show_option_none'  => __( 'Select Page', 'nexas'),
-		                    'option_none_value' => 0 // string
-		                );
-		                wp_dropdown_pages( $args );
-		                ?>
-
-		                <a class="pt-nexas-remove delete"><?php esc_html_e('Remove Section','nexas') ?></a>
-		              </div>
-		              <?php
-		              $counter++;
-		           }
+				                <a class="pt-nexas-remove delete">
+				                	<?php esc_html_e('Remove Section','nexas') ?>
+				                </a>
+			              </div>
+			              <?php
+			              $counter++;
+		              }
 		        }
 		    }
 
@@ -288,14 +301,8 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
            
 			<?php
 		}// end of form section
-
-		
-
-		
-
 	}
 }
-
 
 add_action( 'widgets_init', 'nexas_our_team_widget' );
 

@@ -46,7 +46,7 @@ if ( !function_exists( 'nexas_setup' ) ) :
         add_post_type_support( 'page', 'excerpt' );       
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus( array(
-            'primary' => esc_html__('Primary', 'nexas'),
+            'primary'     => esc_html__('Primary', 'nexas'),
             'social-link' => esc_html__('Social Link', 'nexas'),
         ));
 
@@ -248,7 +248,6 @@ require get_template_directory() . '/paragonthemes/layouts/homepage-layout/nexas
  */
 require get_template_directory() . '/paragonthemes/hooks/reset-css.php';
 
-
 /**
  * Customizer Home layout.
  */
@@ -292,16 +291,15 @@ if (!function_exists('nexas_custom_logo_setup')) :
     function nexas_custom_logo_setup()
     {
         add_theme_support('custom-logo', array(
-            'height' => 35,
-            'width' => 190,
-            'flex-width' => true,
+            'height'      => 35,
+            'width'       => 190,
+            'flex-height' => true,
+            'flex-width'  => true,
         ));
     }
 
     add_action('after_setup_theme', 'nexas_custom_logo_setup');
 endif;
-
-
 
 /**
  * Exclude category in blog page
@@ -315,15 +313,18 @@ if (!function_exists('nexas_exclude_category_in_blog_page')) :
     function nexas_exclude_category_in_blog_page($query)
     {
 
-        if ($query->is_home && $query->is_main_query()) {
+        if ($query->is_home && $query->is_main_query()) 
+        {
             $catid = nexas_get_option('nexas_exclude_cat_blog_archive_option');
             $exclude_categories = $catid;
-            if (!empty($exclude_categories)) {
+            if (!empty($exclude_categories)) 
+            {
                 $cats = explode(',', $exclude_categories);
                 $cats = array_filter($cats, 'is_numeric');
                 $string_exclude = '';
                 echo $string_exclude;
-                if (!empty($cats)) {
+                if (!empty($cats))
+                {
                     $string_exclude = '-' . implode(',-', $cats);
                     $query->set('cat', $string_exclude);
                 }
@@ -340,19 +341,21 @@ add_filter('pre_get_posts', 'nexas_exclude_category_in_blog_page');
  */
 $dynamic_css_options = nexas_get_option('nexas_color_reset_option');
 
-if ($dynamic_css_options == "do-not-reset" || $dynamic_css_options == "") {
+if ( $dynamic_css_options == "do-not-reset" || $dynamic_css_options == "") 
+{
 
     include get_template_directory() . '/paragonthemes/hooks/dynamic-css.php';
 
-} elseif ($dynamic_css_options == "reset-all") {
-    do_action('nexas_colors_reset');
 }
+ elseif ($dynamic_css_options == "reset-all")
+ {
+    do_action('nexas_colors_reset');
+ }
 
 
-
-
-
-
+/**
+ * Run ajax request.
+ */
 if ( ! function_exists('nexas_wp_pages_plucker') ) :
 
     /**

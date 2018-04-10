@@ -108,7 +108,7 @@ jQuery(document).ready(function($) {
     });
 
     jQuery(".pt-nexas-remove").live('click', function() {
-        jQuery(this).parent().remove();
+        jQuery(this).parent().parent().remove();
     });
     
 

@@ -79,9 +79,11 @@ if ( post_password_required() ) {
                 <div class="nav-links">
 
                     <div
-                        class="nav-previous"><?php previous_comments_link(esc_html__('Older Comments', 'nexas')); ?></div>
+                        class="nav-previous"><?php previous_comments_link(esc_html__('Older Comments', 'nexas')); ?>
+                    </div>
                     <div
-                        class="nav-next"><?php next_comments_link(esc_html__('Newer Comments', 'nexas')); ?></div>
+                        class="nav-next"><?php next_comments_link(esc_html__('Newer Comments', 'nexas')); ?>
+                    </div>
 
                 </div><!-- .nav-links -->
             </nav><!-- #comment-nav-below -->

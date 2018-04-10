@@ -15,7 +15,8 @@ $readme_text        = nexas_get_option( 'nexas_read_more_text_blog_archive_optio
      <div   class="section-14-box wow fadeInUp <?php if( !has_post_thumbnail() ) { echo "no-image"; } ?>">
             <figure>
                 <?php
-                if( has_post_thumbnail() ) {
+                if( has_post_thumbnail() ) 
+                {
                     the_post_thumbnail('full', array('class' => 'img-responsive') );
                 }
                 ?>
@@ -58,8 +59,7 @@ $readme_text        = nexas_get_option( 'nexas_read_more_text_blog_archive_optio
                       <div class="text-left">
                           <a href="<?php the_permalink(); ?>" class="btn btn-primary"><?php echo esc_html( $readme_text ); ?></a>
                       </div>
-               <?php }
-
+            <?php }
 
                  wp_link_pages( array(
                         'before' => '<div class="page-links">' . esc_html__( 'Pages:','nexas'),

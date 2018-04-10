@@ -14,8 +14,8 @@
  */
 get_header();
 
-$blog_page_title         = nexas_get_option('nexas_blog_title_option');
-$nexas_designlayout      = nexas_get_option('nexas_sidebar_layout_option');
+$blog_page_title    = nexas_get_option('nexas_blog_title_option');
+$nexas_designlayout = nexas_get_option('nexas_sidebar_layout_option');
 ?>
     <section id="inner-title" class="inner-title" >
         

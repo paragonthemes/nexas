@@ -16,7 +16,8 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
             $defaults = array(
                  
                  'features_title'      => esc_html__('CORE FEATURES', 'nexas'),
-                 'features_background' => ''
+                 'features_background' => '',
+                  'features' => ''
             );
             return $defaults;
         }
@@ -64,7 +65,7 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
              
                 ?>
                 <section id="section1" class="section1">
-                    <?php if (isset($features)) : ?>    
+                    <?php if (isset($features) && !empty($features['main'])) : ?>    
                     <div class="container-fulid">
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-xs-12">
@@ -121,29 +122,29 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
                                         $i = 1;
                                         while ( $features_query->have_posts() ):$features_query->the_post();
                                                         
-                                                        $icon = get_post_meta( get_the_ID(), 'nexas_icon', true );
-                                                        
-                                                        ?>
-                                                        <div class="section-1-box" data-wow-delay=".<?php echo esc_attr($i); ?>">
-                                                              <?php
-                                                              if(!empty($icon))
-                                                              {
-                                                              ?>
-                                                                  <div class="section-1-box-icon-background">
-                                                                      <i class="fa <?php echo esc_attr($icon); ?>"></i>
-                                                                  </div>
-                                                        <?php } ?>
-                                                        
-                                                              <h4><?php the_title() ?></h4>
-                                                        
-                                                              <p><?php the_excerpt(); ?></p>
+                                              $icon = get_post_meta( get_the_ID(), 'nexas_icon', true );
+                                              
+                                              ?>
+                                              <div class="section-1-box" data-wow-delay=".<?php echo esc_attr($i); ?>">
+                                                    <?php
+                                                    if(!empty($icon))
+                                                    {
+                                                    ?>
+                                                        <div class="section-1-box-icon-background">
+                                                            <i class="fa <?php echo esc_attr($icon); ?>"></i>
                                                         </div>
-                                                        <?php
-                                                            endwhile;
-                                                        endif;
-                                                        wp_reset_postdata();
-                                                      endif;
-                                                        ?>                                    
+                                              <?php } ?>
+                                              
+                                                    <h4><?php the_title() ?></h4>
+                                              
+                                                    <p><?php the_excerpt(); ?></p>
+                                              </div>
+                                      <?php
+                                          endwhile;
+                                    endif;
+                                    wp_reset_postdata();
+                              endif;
+                                ?>                                    
                               </div>
                             </div>
                         </div>
@@ -194,7 +195,8 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
             /*default values*/
             $nexas_features_title = esc_attr( $instance[ 'features_title' ] );
             $features_background   = esc_attr( $instance['features_background'] );
-            $features     = ( ! empty( $instance['features'] ) ) ? $instance['features'] : array(); 
+            $features              = ( ! empty( $instance['features'] ) ) ? $instance['features'] : array(); 
+  
             ?>
            <span class="pt-nexas-additional"> 
             <p>
@@ -210,11 +212,21 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
           
               <?php
 
+                if  (count($features) >=  1 && is_array($features) ){
+                  
+                   $selected = $features['main'];
+
+                }
+                else
+                {
+                  $selected = "";
+                }
+
                 $repeater_id   = $this->get_field_id( 'features' ).'-main';
                 $repeater_name = $this->get_field_name( 'features'). '[main]';
 
                 $args = array(
-                    'selected'          => $features['main'],
+                    'selected'          => $selected,
                     'name'              => $repeater_name,
                     'id'                => $repeater_id,
                     'class'             => 'widefat pt-select',

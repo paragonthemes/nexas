@@ -14,7 +14,7 @@
  */
 
 get_header();
- $nexas_designlayout      = get_post_meta(get_the_ID(), 'nexas_sidebar_layout', true  );
+ $nexas_designlayout = get_post_meta(get_the_ID(), 'nexas_sidebar_layout', true  );
  ?>
     <section id="inner-title" class="inner-title"  <?php echo $header_style; ?>>
         <div class="container">
