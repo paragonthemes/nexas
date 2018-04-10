@@ -38,6 +38,13 @@ if( !class_exists( 'Nexas_Font_Awesome_Class_Metabox') ){
             wp_nonce_field( basename(__FILE__), 'nexas_fontawesome_fields_nonce');
             ?>
             <input type="text" name="icon" value="<?php echo esc_html($values) ?>" />
+            <br/>
+            <small>
+                <?php
+                esc_html_e( 'Font Awesome Icon Used in Post', 'nexas' );
+                printf( __( '%1$sRefer here%2$s for icon class. For example: %3$sfa-desktop%4$s', 'nexas' ), '<br /><a href="'.esc_url( 'https://fontawesome.com/v4.7.0/icons/' ).'" target="_blank">','</a>',"<code>","</code>" );
+                ?>
+            </small>
             <?php
         }
 
