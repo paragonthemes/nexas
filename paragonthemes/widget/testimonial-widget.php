@@ -13,14 +13,12 @@ if ( !class_exists( 'Nexas_Testimonial_Widget' ) )
     {
 
         private function defaults()
-
+        /* Default Value */
         {
-
             $defaults = array(
             'bg_image' => '',
             'features'   =>'',
             );
-
             return $defaults;
         }
 
@@ -28,17 +26,29 @@ if ( !class_exists( 'Nexas_Testimonial_Widget' ) )
 
         {
             parent::__construct(
+            /*Widget ID */
             'nexas_testimonial_widget',
+            /*Widget Name */
             esc_html__( 'Nexas Testimonial Widget', 'nexas' ),
+            /*Widget Description */
             array('description' => esc_html__( 'Nexas Testimonial Section', 'nexas' ) )
             );
         }
-
+        /**
+         * Function to Creating widget front-end. This is where the action happens
+         *
+         * @access public
+         * @since 1.0
+         *
+         * @param array $args widget setting
+         * @param array $instance saved values
+         *
+         * @return void
+         *
+         */
   
-    public function widget($args, $instance)
-
+        public function widget($args, $instance)
         {
-
             if (!empty($instance)) 
             {
                 $instance  = wp_parse_args((array )$instance, $this->defaults());
@@ -163,6 +173,18 @@ if ( !class_exists( 'Nexas_Testimonial_Widget' ) )
                 echo $args['after_widget'];
             }
         }
+        /**
+         * Function to Updating widget replacing old instances with new
+         *
+         * @access public
+         * @since 1.0
+         *
+         * @param array $new_instance new arrays value
+         * @param array $old_instance old arrays value
+         *
+         * @return array
+         *
+         */
 
     public function update( $new_instance, $old_instance )
     {
@@ -194,11 +216,9 @@ if ( !class_exists( 'Nexas_Testimonial_Widget' ) )
 
         ?>
         <span class="pt-nexas-additional">
-
-            <!--updated code-->
             <label><?php _e( 'Select Pages', 'nexas' ); ?>:</label>
             <br/>
-            <small><?php _e( 'Add Page, Reorder and Remove. Please do not forget to add Icon and Excerpt  on selected pages.', 'nexas' ); ?></small>
+            <small><?php _e( 'Select Page and Remove. Please do not forget to add Icon, Featured Image and Excerpt on selected pages.', 'nexas' ); ?></small>
             <?php
 
             if  ( count( $features ) >=  1 && is_array( $features ) )

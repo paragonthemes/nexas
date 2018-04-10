@@ -20,8 +20,13 @@ Powerful Theme for your business website. This theme comes with attractive slide
 3. Click Activate to use your new theme right away.
 
 #### Changelog ####
+## 1.0.0 - April 10 2018 ##
+* Fixed Some Code Issues
+* Changed Widget Design 
+
 ## 1.0.0 - March 27 2018 ##
-* Submitted to WordPress
+* Minor CSS changed
+* Code Fixed
 
 ## 0.0.1 - Feb 07 2018 ##
 * Submitted to WordPress

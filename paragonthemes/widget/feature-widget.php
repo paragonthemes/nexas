@@ -26,11 +26,11 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
         
         {
             parent::__construct(
-                /*Base ID of your widget*/
+                /*Widget ID*/
                 'nexas_feature_widget',
-                /*Widget name will appear in UI*/
+                /*Widget name*/
                  esc_html__('Nexas Feature Widget', 'nexas'),
-                 /*Widget description*/
+                 /*Widget Description*/
                  array('description' => esc_html__('Nexas Feature Section', 'nexas'))
             );
         }
