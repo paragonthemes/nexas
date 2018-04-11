@@ -23,7 +23,7 @@ get_header();
             </div>
         </div>
     </section>
-    <section id="section16" class="section16">
+    <section id="section16" class="section16 gray-bg">
         <div class="container">
             <div class="row">
                 <div class="col-sm-<?php if ($nexas_designlayout == 'no-sidebar') {

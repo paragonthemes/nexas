@@ -127,7 +127,7 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
 
 							/*The Loop*/
 							if ( $our_team_query->have_posts() ):
-								$i = 1;
+								$i = 0.1;
 								while ( $our_team_query->have_posts() ):$our_team_query->the_post();
 									?>
 	                            <div class="col-md-4">

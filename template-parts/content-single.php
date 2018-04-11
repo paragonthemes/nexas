@@ -25,8 +25,6 @@ $hide_show_feature_image = nexas_get_option( 'nexas_show_feature_image_single_op
         </figure>
 
         <div class="entry-box">
-            <h3 class="clearfix"><?php the_title(); ?></h3>
-            
             <div class="date">
                 <span><?php echo esc_html( get_the_date('M') ); ?></span>
                 <span><?php echo esc_html( get_the_date('d') ); ?></span>

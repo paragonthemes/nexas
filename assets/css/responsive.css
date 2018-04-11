@@ -108,6 +108,10 @@ Designed By: Paragon Themes
 /* Mobile Layout: 320px. */
 
 @media only screen and (max-width: 767px) {
+    .section-margine,
+    #section2{
+        padding:50px 0;
+    }
     .slider .carousel-caption h1 {
         text-transform: uppercase;
         font-weight: 700;
@@ -134,6 +138,13 @@ Designed By: Paragon Themes
         text-align: left;
         margin: 17px 0 0 0;
     }
+   .section1 .section-margine {
+        padding: 50px 30px;
+    }
+    .section1 .sec-title h2{
+        font-size: 24px;
+    }
+
 
 }
 
@@ -166,5 +177,101 @@ Designed By: Paragon Themes
     .section-10-btn-cont {
         text-align: left;
         margin: 17px 0 0 0;
+    }
+    
+}
+
+@media only screen and (max-width: 480px){
+    .custom-logo-link {
+        width: 100px;
+        display: inline-block;
+    }
+    .custom-logo-link img.custom-logo {
+        max-width: 100% !important;
+    }
+    header .navbar-toggle {
+        margin-top: 15px !important;
+    }
+    .btn-primary {
+        padding: 9px 20px;
+    }
+    .section-title h2 {
+        font-size: 24px;
+    }
+    .slider .btn-primary {
+        padding: 2px 10px;
+    }
+    .slider .carousel-caption{
+        padding:0 20px;
+        top: 5%;
+    }
+    .slider .carousel-caption h1 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+    .slider .carousel-caption h3 {
+        font-size: 9px;
+        line-height: 1.5em;
+        margin-bottom: 5px;
+    }
+    .slider .carousel-caption .btn {
+        margin-top: 0;
+        font-size: 12px;
+    }
+    .slider .carousel-control.left, 
+    .slider .carousel-control.right {
+        top: 30%;
+    }
+    .slider .carousel-control.left{
+        left: -8px;
+    }
+    .slider .carousel-control.right{
+        right: -8px;
+    }
+    .slider .carousel-control.left span, 
+    .slider .carousel-control.right span{
+        width: :30px;
+    }
+    .slider .carousel-control i.fa-2x{
+        font-size: 1.5em;
+    }
+    .section-1-box{
+        text-align: center;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+    .section-1-box-icon-background {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin: 0 auto 20px auto;
+    }
+    .border.left {
+        display: none;
+    }
+    .section1 .sec-title.two{
+        text-align: center;
+    }
+    .section1 .sec-title.two h2::before {
+        position: absolute;
+        background: #ec5538;
+        left: 40%;
+        width: 60px;
+        bottom: -20px;
+        content: "";
+        height: 2px;
+    }
+    .section-5-box-text-cont h2{
+        font-size: 24px;
+    }
+    .section-5-background{
+        padding: 50px 0!important;
+    }
+    .footer-top-box{
+        margin: 15px auto;
+    }
+    .contact-detail2 li:first-child {
+        padding-bottom: 0;
     }
 }

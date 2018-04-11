@@ -76,9 +76,10 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
                         <div class="row">
                         
                             <div class="col-md-12">
-                        
-                                <h2 class="text-center"><?php echo $title; ?></h2>
-                                <hr>
+                                <div class="section-title">
+                                    <h2 class="text-center"><?php echo $title; ?></h2>
+                                    <hr>
+                                </div>
                         
                                 <div class="portfolioFilter text-center">
                         
