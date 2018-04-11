@@ -10,7 +10,7 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
             $defaults = array(
                 'title'                      => esc_html__( 'Our Work', 'nexas' ),
                 'nexas_portfolio_filter_all' => esc_html__( 'All', 'nexas' ),
-                'cat_id'                     => array(),
+                'cat_id'                     => array(7,8,11),
                 'featured_image_size'        => 'full',
                 'post_column'                => 3,
                 'post_number'                => 6,

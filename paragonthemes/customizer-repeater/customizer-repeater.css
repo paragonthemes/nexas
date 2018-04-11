@@ -59,7 +59,7 @@
 .repeater-fields{
     line-height: 16px;
     padding: 10px 15px 15px;
-    background: #fff none repeat scroll 0 0;
+    background: #eeeeee none repeat scroll 0 0;
     border: 1px solid #e5e5e5;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
@@ -75,3 +75,11 @@
     margin: 0;
     padding: 0;
 }
+
+li.repeater-field-control h3:after {
+    transform: rotate(90deg);
+}
+
+li.repeater-field-control.expanded h3:after {
+    transform: rotate(-90deg);
+}  

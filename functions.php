@@ -276,6 +276,11 @@ require get_template_directory() . '/paragonthemes/library/tgm/class-tgm-plugin-
 require get_template_directory() . '/paragonthemes/hooks/tgm.php';
 
 /**
+ * Dummy File Load 
+*/
+require get_template_directory() . '/paragonthemes/dummy-data/dummy-file.php';
+
+/**
  * Load about.
  */
 if ( is_admin() ) {

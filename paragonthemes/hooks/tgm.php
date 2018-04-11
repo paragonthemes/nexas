@@ -22,13 +22,6 @@ if ( ! function_exists( 'nexas_recommended_plugins' ) ) :
 				'slug'     => 'contact-form-7',
 				'required' => false,
 			),
-
-			array(
-				'name'     => esc_html__( 'WooCommerce', 'nexas' ),
-				'slug'     => 'woocommerce',
-				'required' => false,
-			),
-
 		   
 		);
 		tgmpa( $plugins );
