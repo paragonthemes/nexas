@@ -57,21 +57,13 @@ jQuery(document).ready(function($) {
     jQuery("body").on('click','.pt-nexas-add', function(e) {
 
       e.preventDefault();
+       
+      var widget_id = $(this).attr('data-id');
+
+      var ID=  $(this).attr('id');
+      var arr11 = ID.split('-');
+      var num= arr11[2];
       var additional = $(this).parent().parent().find('.pt-nexas-additional');
-      var container = $(this).parent().parent().parent().parent();
-     
-      var container_class = container.attr('id');
-   
-      var arr = container_class.split('-');
-    
-      var val=  arr[1].split('_');
-  
-       val.shift();
-      
-      var liver=  val.join('_')
-   
-      var container_class_array = container_class.split(liver+"-");
-      var instance = container_class_array[1];
       var add = $(this).parent().parent().find('.pt-nexas-add');
       count = additional.find('.pt-nexas-sec').length;
    
@@ -95,20 +87,20 @@ jQuery(document).ready(function($) {
 
             additional.append(
                 '<div class="pt-nexas-sec"><div class="sub-option section widget-upload">'+
-                '<label for="widget-'+liver+'-'+instance+'-features-'+count+'-page_ids">Pages</label>'+
-                '<select class="widefat" id="widget-'+liver+'-'+instance+'-features-'+count+'-page_ids"'+
-                'name="widget-'+liver+'['+instance+'][features]['+count+'][page_ids]">'+ options + '</select>' +
+                '<label for="widget-'+widget_id+'-'+num+'-features-'+count+'">Pages</label>'+
+                '<select class="widefat" id="widget-'+widget_id+'-'+num+'-features-'+count+'-page_ids"'+
+                'name="widgets['+num+'][features]['+count+'][page_ids]">'+ options + '</select>' +
                 '<a class="pt-nexas-remove delete">Remove Feature</a></div></div>' );
 
-        }
-        });
+        }   
+        });   
       
     });
 
     jQuery(".pt-nexas-remove").live('click', function() {
         jQuery(this).parent().parent().remove();
     });
-  
+
 });
 
 

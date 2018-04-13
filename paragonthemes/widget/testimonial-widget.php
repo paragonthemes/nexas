@@ -279,20 +279,18 @@ if ( !class_exists( 'Nexas_Testimonial_Widget' ) )
             ?>
 
         </span>
-        <a class="pt-nexas-add button"><?php _e('Add New Section'); ?></a>   
+        <a class="pt-nexas-add button" data-id="nexas_testimonial_widget" id="<?php echo $repeater_id; ?>"><?php _e('Add New Section'); ?></a> 
         <hr>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'bg_image' ) ); ?>">
-            <?php esc_html_e( 'Background Image', 'nexas' ); ?>
-            </label>
-            <br/>
-            <?php
-            if (!empty($bgimage)) :
-             echo '<img class="custom_media_image widefat" src="' . $bgimage . '"/><br />';
-            endif;
-            ?>
-            <input type="text" class="widefat custom_media_url" name="<?php echo esc_attr($this->get_field_name('bg_image')); ?>" id="<?php echo esc_attr($this->get_field_id('bg_image')); ?>" value="<?php echo $bgimage; ?>"/>
-            <input type="button" class="button button-primary custom_media_button" id="custom_media_button" name="<?php echo esc_attr($this->get_field_name('bg_image')); ?>" value="<?php esc_attr_e('Upload Image', 'nexas') ?>"/>
+                <label for="<?php echo $this->get_field_id('bg_image'); ?>">
+                    <?php _e( 'Select Background Image', 'nexas' ); ?>:
+                </label>
+                <span class="img-preview-wrap" <?php  if ( empty( $bgimage ) ){ ?> style="display:none;" <?php  } ?>>
+                    <img class="widefat" src="<?php echo esc_url( $bgimage ); ?>" alt="<?php esc_attr_e( 'Image preview', 'nexas' ); ?>"  />
+                </span><!-- .img-preview-wrap -->
+                <input type="text" class="widefat" name="<?php echo $this->get_field_name('bg_image'); ?>" id="<?php echo $this->get_field_id('bg_image'); ?>" value="<?php echo esc_url( $bgimage ); ?>" />
+                <input type="button" id="custom_media_button" value="<?php esc_attr_e( 'Upload Image', 'nexas' ); ?>" class="button media-image-upload" data-title="<?php esc_attr_e( 'Select Background Image','nexas'); ?>" data-button="<?php esc_attr_e( 'Select Background Image','nexas'); ?>"/>
+                <input type="button" id="remove_media_button" value="<?php esc_attr_e( 'Remove Image', 'nexas' ); ?>" class="button media-image-remove" />
         </p>
 
         <?php

@@ -17,6 +17,7 @@ if (!function_exists('nexas_widgets_backend_enqueue')) :
     add_action('admin_enqueue_scripts', 'nexas_widgets_backend_enqueue');
 endif;
 
+
 /**
  * enqueue Admins style for admin dashboard.
  */
@@ -30,6 +31,13 @@ if ( !function_exists( 'nexas_admin_css_enqueue' ) ) :
             return;
         }
         wp_enqueue_style('nexas-admin', get_template_directory_uri() . '/assets/css/admin.css', array(), '2.0.0');
+        wp_enqueue_style('nexas-pt-admin', get_template_directory_uri() . '/assets/css/pt-admin-css.css', array(), '2.0.0');  
+
+        wp_register_script('nexas-page-builder-widgets', get_template_directory_uri() . '/assets/js/page-builder-widgets.js', array('jquery'), true);
+        wp_enqueue_media();
+        wp_enqueue_script('nexas-page-builder-widgets');
+
+      
          }
     add_action('admin_enqueue_scripts', 'nexas_admin_css_enqueue');
 endif;
@@ -43,10 +51,21 @@ if ( !function_exists( 'nexas_admin_css_enqueue_new_post')) :
         if ( 'post-new.php' != $hook ) {
             return;
         }
+
         wp_enqueue_style('nexas-admin', get_template_directory_uri() . '/assets/css/admin.css', array(), '2.0.0');
+
+        wp_enqueue_style('nexas-pt-admin', get_template_directory_uri() . '/assets/css/pt-admin-css.css', array(), '2.0.0');  
+
+
+        wp_register_script('nexas-page-builder-widget', get_template_directory_uri() . '/assets/js/page-builder-widgets.js', array('jquery'), true);
+
+        wp_enqueue_media();
+
+        wp_enqueue_script('nexas-page-builder-widget');
     }
     add_action( 'admin_enqueue_scripts', 'nexas_admin_css_enqueue_new_post' );
 endif;
+
 
 /**
  * Functions for get_theme_mod()

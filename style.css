@@ -128,7 +128,45 @@ body {
     text-align: center;
 
 }
+/*--------------------------------------------------------------
 
+## Typography
+
+--------------------------------------------------------------*/
+
+h1, .h1 {
+    font-size: 35px;
+}
+h2, .h2 {
+    font-size: 30px;
+}
+h3, .h3 {
+    font-size: 26px;
+}
+h4, .h4 {
+    font-size: 24px;
+}
+h5, .h5 {
+    font-size: 20px;
+}
+h6, .h6 {
+    font-size: 18px;
+}
+table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border: 1px solid #dee2e6;
+    border-collapse: collapse;
+}
+table td, 
+table th {
+    padding: .75rem;
+    vertical-align: top;
+    border: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+}
 /*--------------------------------------------------------------
 
 ## Galleries
@@ -374,18 +412,89 @@ p {
     font-weight: normal;
     line-height: 25px;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: "";
+blockquote {
+    margin: 0;
+    border: 0;
+    width: 100%;
+    float: left;
+    quotes: none;
+    font-size: 17px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    padding: 30px 100px;
+    font-style: italic;
+}
+blockquote p,
+blockquote q{
+    text-align: left;
+}
+blockquote::after {
+    left: 0;
+    top: 50%;
+    color: #fff;
+    width: 70px;
+    height: 70px;
+    content: '\f10d';
+    font-size: 30px;
+    line-height: 70px;
+    margin: -35px 0 0;
+    position: absolute;
+    text-align: center;
+    font-weight: normal;
+    font-family: 'FontAwesome';
+    background: #333;
+}
+cite {
+    font-style: normal;
 }
 
-blockquote,
-q {
-    quotes: "" "";
+address {
+    font-style: italic;
+    margin: 0 0 28px;
 }
 
+pre {
+    font-family: Courier New, "Courier 10 Pitch", Courier, monospace;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 100%;
+    overflow: auto;
+    padding: 35px 28px;
+    white-space: pre-wrap;
+}
+
+code,
+kbd,
+tt,
+var {
+    font-family: Courier New, Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code {
+    padding: 7px;
+}
+
+abbr,
+acronym {
+    border-bottom: 1px dotted #666;
+    cursor: help;
+}
+
+mark,
+ins {
+    background: #fffbcc;
+    text-decoration: none;
+}
+
+:focus {
+    outline: none;
+}
+.drop-cap:first-letter {
+    font-size: 88px;
+    font-size: 5.5rem;
+}
 hr {
     background-color: #ccc;
     border: 0;
@@ -1305,7 +1414,7 @@ header .navbar-toggle .icon-bar {
 
 .widget ul {
     list-style-type: none;
-    margin: 30px 0 0 0;
+    margin: 10px 0 0 0;
     padding: 0;
 }
 
@@ -1320,7 +1429,7 @@ header .navbar-toggle .icon-bar {
 
 .widget .widget-title {
     font-size: 16px;
-    padding: 0 0 15px;
+    padding: 0 0 10px;
     text-transform: uppercase;
 }
 
@@ -1396,15 +1505,13 @@ header .navbar-toggle .icon-bar {
     font-size: 14px;
 }
 
-#secondary .widget-title {
-    margin-bottom: 30px;
-}
 #secondary .widget ul li {
     position: relative;
 }
 #secondary .widget {
     margin-bottom: 0;
-    margin-top: 50px;
+    margin-top: 30px;
+    overflow: hidden;
 }
 #secondary .widget h3 {
     font-size: 16px;
