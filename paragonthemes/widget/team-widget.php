@@ -297,7 +297,7 @@ if ( ! class_exists( 'Nexas_Our_Team_Widget' ) ) {
 		    ?>
 
 		 </span>
-		<a class="pt-nexas-add button" data-id="nexas_our_team_widget" id="<?php echo $repeater_id; ?>"><?php _e('Add New Section'); ?></a>   
+		<a class="pt-nexas-add button" data-id="nexas_our_team_widget" id="<?php echo $repeater_id; ?>"><?php _e('Add New Section', 'nexas'); ?></a>   
            
 			<?php
 		}// end of form section

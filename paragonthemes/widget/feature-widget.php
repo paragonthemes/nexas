@@ -273,7 +273,7 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
             ?>
 
            </span>
-           <a class="pt-nexas-add button" data-id="nexas_feature_widget" id="<?php echo $repeater_id; ?>"><?php _e('Add New Section'); ?></a> 
+           <a class="pt-nexas-add button" data-id="nexas_feature_widget" id="<?php echo $repeater_id; ?>"><?php _e('Add New Section', 'nexas'); ?></a> 
            <hr>
             <p>
                 <label for="<?php echo $this->get_field_id('features_background'); ?>">

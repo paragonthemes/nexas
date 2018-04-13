@@ -4,7 +4,7 @@ Contributors: paragonthemes
 Tags: custom-logo, one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-background, custom-colors, custom-menu, featured-images, theme-options, threaded-comments, translation-ready, blog, portfolio, e-commerce, footer-widgets
 Requires at least: 4.6
 Tested up to: 4.9.4
-Stable tag: 0.0.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ Powerful Theme for your business website. This theme comes with attractive slide
 3. Click Activate to use your new theme right away.
 
 #### Changelog ####
-## 1.0.0 - April 10 2018 ##
+## 1.0.1 - April 13 2018 ##
 * Fixed Some Code Issues
 * Changed Widget Design 
 
