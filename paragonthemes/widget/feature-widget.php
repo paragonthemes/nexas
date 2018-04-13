@@ -194,7 +194,7 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
             $instance           = wp_parse_args( (array) $instance, $this->defaults() );
             /*default values*/
             $nexas_features_title = esc_attr( $instance[ 'features_title' ] );
-            $features_background   = esc_attr( $instance['features_background'] );
+            $features_background   = esc_url( $instance['features_background'] );
             $features              = ( ! empty( $instance['features'] ) ) ? $instance['features'] : array(); 
   
             ?>
@@ -273,20 +273,19 @@ if( !class_exists( 'Nexas_Feature_Widget') ){
             ?>
 
            </span>
-           <a class="pt-nexas-add button"><?php _e('Add New Section'); ?></a>   
+           <a class="pt-nexas-add button" data-id="nexas_feature_widget" id="<?php echo $repeater_id; ?>"><?php _e('Add New Section'); ?></a> 
+           <hr>
             <p>
-              <label for="<?php echo esc_attr( $this->get_field_id( 'features_background' ) ); ?>">
-                  <?php esc_html_e( 'Background Image', 'nexas' ); ?>
-              </label>
-              <br/>
-              <?php
-              if (!empty($features_background)) :
-                  echo '<img class="custom_media_image widefat" src="' . esc_url($features_background) . '"/><br />';
-              endif;
-              ?>
-              <input type="text" class="widefat custom_media_url" name="<?php echo esc_attr($this->get_field_name('features_background')); ?>" id="<?php echo esc_attr($this->get_field_id('features_background')); ?>" value="<?php echo $features_background; ?>"/>
-              <input type="button" class="button button-primary custom_media_button" id="custom_media_button" name="<?php echo esc_attr($this->get_field_name('features_background')); ?>" value="<?php esc_attr_e('Upload Image', 'nexas') ?>"/>
-            </p>
+                <label for="<?php echo $this->get_field_id('features_background'); ?>">
+                    <?php _e( 'Select Background Image', 'nexas' ); ?>:
+                </label>
+                <span class="img-preview-wrap" <?php  if ( empty( $features_background ) ){ ?> style="display:none;" <?php  } ?>>
+                    <img class="widefat" src="<?php echo esc_url( $features_background ); ?>" alt="<?php esc_attr_e( 'Image preview', 'nexas' ); ?>"  />
+                </span><!-- .img-preview-wrap -->
+                <input type="text" class="widefat" name="<?php echo $this->get_field_name('features_background'); ?>" id="<?php echo $this->get_field_id('features_background'); ?>" value="<?php echo esc_url( $features_background ); ?>" />
+                <input type="button" id="custom_media_button"  value="<?php esc_attr_e( 'Upload Image', 'nexas' ); ?>" class="button media-image-upload" data-title="<?php esc_attr_e( 'Select Background Image','nexas'); ?>" data-button="<?php esc_attr_e( 'Select Background Image','nexas'); ?>"/>
+                <input type="button" id="remove_media_button" value="<?php esc_attr_e( 'Remove Image', 'nexas' ); ?>" class="button media-image-remove" />
+           </p>
             <?php
         }
     }

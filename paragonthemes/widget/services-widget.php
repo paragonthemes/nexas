@@ -287,7 +287,7 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
             ?>
 
          </span>
-         <a class="pt-nexas-add button"><?php _e('Add New Section'); ?></a> 
+         <a class="pt-nexas-add button" data-id="nexas_service_widget" id="<?php echo $repeater_id; ?>"><?php _e('Add New Section'); ?></a> 
            
             <?php
         }

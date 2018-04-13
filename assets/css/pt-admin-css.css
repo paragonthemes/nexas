@@ -90,12 +90,25 @@ a.pt-nexas-remove.delete {
     float: right;
     cursor: pointer;
 }
+
+input#remove_media_button { 
+
+    background: #d9534f!important;
+    height: 34px;
+    border-color: #d9534f!important;
+    position: relative;
+    color: #ffffff;
+
+}
+
 input#custom_media_button {
     background: #0275d8!important;
     height: 34px;
     border-color: #0275d8!important;
     position: relative;
+    color: #ffffff;
 }
+
 
 
 button.button-link.button-link-delete.widget-control-remove {

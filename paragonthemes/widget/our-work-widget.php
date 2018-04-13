@@ -10,10 +10,10 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
             $defaults = array(
                 'title'                      => esc_html__( 'Our Work', 'nexas' ),
                 'nexas_portfolio_filter_all' => esc_html__( 'All', 'nexas' ),
-                'cat_id'                     => array(7,8,11),
+                'cat_id'                     => '',
                 'featured_image_size'        => 'full',
                 'post_column'                => 3,
-                'post_number'                => 6,
+                'post_number'                => 15,
             );
             return $defaults;
         }
@@ -34,7 +34,13 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
         {
 
             $instance = wp_parse_args( (array) $instance, $this->defaults() );
+           
             if ( !empty( $instance ) ) {
+               $a1 = array(40,4,42);
+               if($a1 == $instance['cat_id'] )
+                {
+                   $instance['cat_id'] = array(7,8,11);
+                }     
                 $post_number               = absint($instance['post_number']);
                 $column_number             = absint($instance['post_column']);
                 $featured_image            = esc_html($instance['featured_image_size']);
@@ -46,7 +52,7 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
                     if (is_array($nexas_selected_cat[0])) {
                       $nexas_selected_cat  = $nexas_selected_cat[0];
                     }
-                }
+              }
 
                 echo $args['before_widget'];
                 ?>
@@ -69,7 +75,7 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
                             $nexas_cat_post_args['category__in'] = $nexas_selected_cat;
                         
                         }
-                        
+          
                         $portfolio_filter_query = new WP_Query($nexas_cat_post_args);
 
                         ?>
@@ -200,7 +206,7 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
         public function update( $new_instance, $old_instance )
         {
             $instance                               = $old_instance;
-            $instance['cat_id']                     = (isset($new_instance['cat_id'])) ? nexas_sanitize_multiple_category( $new_instance['cat_id'] ) : array();
+            $instance['cat_id']                     = (isset($new_instance['cat_id'])) ? nexas_sanitize_multiple_category( $new_instance['cat_id'] ) : array('');
             $instance['nexas_portfolio_filter_all'] = sanitize_text_field($new_instance['nexas_portfolio_filter_all']);
             $instance['title']                      = sanitize_text_field( $new_instance['title'] );
             $instance['post_number']                = absint( $new_instance['post_number'] );
@@ -221,7 +227,16 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
             $title                      = esc_attr($instance['title']);
             $nexas_ad_title             = esc_attr($instance['nexas_portfolio_filter_all']);
             $nexas_selected_cat         = '';
-            
+            $a1 = array(40,4,42);
+
+             var_dump($a1);
+          
+            if($a1 == $instance['cat_id'] )
+             
+              {
+                $instance['cat_id'] = array(7,8,11);
+              }
+             
             if (!empty($instance['cat_id'])) 
             {
                 $nexas_selected_cat     = $instance['cat_id'];
@@ -233,7 +248,6 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
                 }
             }
             ?>
-
             <p>
 
                 <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><strong><?php esc_html_e('Title:', 'nexas'); ?></strong></label>
