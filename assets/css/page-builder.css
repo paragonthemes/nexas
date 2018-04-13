@@ -3,3 +3,6 @@
 * @since 1.0.0
 * @package Nexas
 */
+.siteorigin-panels .panel-layout .container {
+    width: 100%;
+}
