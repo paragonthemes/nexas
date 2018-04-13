@@ -228,8 +228,6 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
             $nexas_ad_title             = esc_attr($instance['nexas_portfolio_filter_all']);
             $nexas_selected_cat         = '';
             $a1 = array(40,4,42);
-
-             var_dump($a1);
           
             if($a1 == $instance['cat_id'] )
              
