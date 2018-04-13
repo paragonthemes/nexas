@@ -177,6 +177,8 @@ function nexas_scripts()
 
     wp_enqueue_style('magnific-popup', get_template_directory_uri() . '/assets/css/magnific-popup.css', array(), '4.5.0');
 
+    wp_enqueue_style('nexas-page-builder', get_template_directory_uri() . '/assets/css/page-builder.css', array(), '4.5.0');
+
     wp_enqueue_style('nexas-style', get_stylesheet_uri());
 
     wp_enqueue_style('nexas-responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), '4.5.0');
