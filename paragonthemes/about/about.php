@@ -34,7 +34,6 @@ if ( ! function_exists( 'nexas_about_setup' ) ) :
 			'tabs' => array(
 				'getting-started' => esc_html__( 'Getting Started', 'nexas' ),
 				),
-
 			// Quick links.
 			'quick_links' => array(
                 'theme_url' => array(
