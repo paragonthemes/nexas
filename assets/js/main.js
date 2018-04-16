@@ -18,7 +18,6 @@ Designed By: Paragon Themes
 		$(document).scroll(function(e){
 			var scrollTop = $(document).scrollTop();
 			if(scrollTop > $('header nav').height()){
-				//console.log(scrollTop);
 				$('header nav').addClass('navbar-fixed-top');
 			}
 			else {

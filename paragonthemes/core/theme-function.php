@@ -198,6 +198,3 @@ require get_template_directory() . '/paragonthemes/widget/our-work-widget.php';
  * Custom Our Team Widget
  */
 require get_template_directory() . '/paragonthemes/widget/team-widget.php';
-
-
-
