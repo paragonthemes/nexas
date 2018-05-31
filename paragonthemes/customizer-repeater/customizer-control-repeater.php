@@ -51,7 +51,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Nexas_Customize_
 	}
 endif;
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Control' )):
+if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Nexas_Repeater_Control' )):
 	/**
 	 * Custom Control Repeater Controls
 	 * @package Paragon Themes
@@ -59,7 +59,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'PT_Repeater_Cont
 	 * @since 1.0.0
 	 *
 	 */
-	class PT_Repeater_Control extends WP_Customize_Control {
+	class Nexas_Repeater_Control extends WP_Customize_Control {
 		/**
 		 * The control type.
 		 *

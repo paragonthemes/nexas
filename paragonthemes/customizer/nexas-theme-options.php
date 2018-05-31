@@ -206,6 +206,80 @@ $wp_customize->add_control('nexas_post_search_placeholder_option',
     )
 );
 
+/*-------------------------------------------------------------------------------------------*/
+/**
+ * Animation Options
+ *
+ * @since 1.0.4
+ */
+$wp_customize->add_section(
+    'nexas_animation_option_section',
+    array(
+        'title'     => esc_html__('Disable Animation', 'nexas'),
+        'panel'     => 'nexas_theme_options',
+        'priority'  => 8,
+    )
+);
+
+/**
+ *Animation Options
+*/
+$wp_customize->add_setting(
+    'nexas_animation_option',
+    array(
+        'default'           => $default['nexas_animation_option'],
+        'sanitize_callback' => 'nexas_sanitize_checkbox',
+
+    )
+);
+
+$wp_customize->add_control('nexas_animation_option',
+    array(
+        'label'    => esc_html__('Animation Option', 'nexas'),
+        'description'=> esc_html__('Checked to hide the animation on your site', 'nexas'),
+        'section'  => 'nexas_animation_option_section',
+        'type'     => 'checkbox',
+        'priority' => 10
+    )
+);
+
+/*-------------------------------------------------------------------------------------------*/
+/**
+ * Go To Top Options
+ *
+ * @since 1.0.4
+ */
+$wp_customize->add_section(
+    'nexas_go_to_top_option',
+    array(
+        'title'     => esc_html__('Go To Top Option', 'nexas'),
+        'panel'     => 'nexas_theme_options',
+        'priority'  => 8,
+    )
+);
+
+/**
+ *Go To Top Options
+*/
+$wp_customize->add_setting(
+    'nexas_footer_go_to_top',
+    array(
+        'default'           => $default['nexas_footer_go_to_top'],
+        'sanitize_callback' => 'nexas_sanitize_checkbox',
+
+    )
+);
+
+$wp_customize->add_control('nexas_footer_go_to_top',
+    array(
+        'label'    => esc_html__('Go To Top', 'nexas'),
+        'section'  => 'nexas_go_to_top_option',
+        'type'     => 'checkbox',
+        'priority' => 10
+    )
+);
+
+
 
 /*-------------------------------------------------------------------------------------------*/
 /**

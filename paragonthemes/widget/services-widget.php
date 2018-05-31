@@ -199,7 +199,7 @@ if( !class_exists( 'Nexas_Services_Widget' ) ){
             $subtitle   = esc_attr( $instance['sub_title'] );
             $features   = ( ! empty( $instance['features'] ) ) ? $instance['features'] : array(); 
             ?>
-            <span class="pt-nexas-additional">
+            <span class="pt-nexas-additional services">
             <p>
                 <label for="<?php echo esc_attr($this->get_field_id('title')); ?>">
                     <?php esc_html_e('Title', 'nexas'); ?>

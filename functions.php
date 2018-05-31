@@ -173,8 +173,12 @@ function nexas_scripts()
     /*google font  */
     wp_enqueue_style('nexas-googleapis', 'https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Source+Sans+Pro:300,400,600', array(), null);
 
+    /* Animation CSS Enqueue */
+    $animation_options = nexas_get_option('nexas_animation_option');
+    if( $animation_options == 0 ){
     wp_enqueue_style('animate', get_template_directory_uri() . '/assets/css/animate.css', array(), '4.5.0');
-
+    }
+    
     wp_enqueue_style('magnific-popup', get_template_directory_uri() . '/assets/css/magnific-popup.css', array(), '4.5.0');
 
     wp_enqueue_style('nexas-page-builder', get_template_directory_uri() . '/assets/css/page-builder.css', array(), '4.5.0');

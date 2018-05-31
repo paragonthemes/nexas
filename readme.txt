@@ -4,13 +4,13 @@ Contributors: paragonthemes
 Tags: custom-logo, one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-background, custom-colors, custom-menu, featured-images, theme-options, threaded-comments, translation-ready, blog, portfolio, e-commerce, footer-widgets
 Requires at least: 4.6
 Tested up to: 4.9.4
-Stable tag: 1.0.1
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 #### Description ####
 
-Powerful Theme for your business website. This theme comes with attractive slider, custom widgets for home page sections, contact and testimonail section, header and footer options and many more. This template is very useful for corporate, business and personal portfolio websites.
+Powerful Theme for your business website. This theme comes with attractive slider, custom widgets for home page sections, contact and testimonail section, header and footer options and many more. This template is very useful for corporate, business and personal portfolio websites. http://demo.paragonthemes.com/nexas/
 
 
 #### Installation ####
@@ -20,6 +20,22 @@ Powerful Theme for your business website. This theme comes with attractive slide
 3. Click Activate to use your new theme right away.
 
 #### Changelog ####
+
+## 1.0.4 - May 30 2018 ##
+* Disable Animation Added
+* Go to Top Added 
+* Fixed some minor CSS issues
+
+## 1.0.3 - May 15 2018 ##
+* Fixed Demo Imoport WooCommerce Issues
+* WooCommerce Plugin Recommended Added
+
+## 1.0.2 - May 1 2018 ##
+* Fixed Prefixing Issues.
+* Fixed Sanitization Issues.
+* Fixed excerpt_more filter issues.
+* Fixed Other Code issues.
+
 ## 1.0.1 - April 13 2018 ##
 * Fixed Some Code Issues
 * Changed Widget Design 

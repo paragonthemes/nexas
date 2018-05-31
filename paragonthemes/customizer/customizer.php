@@ -28,7 +28,7 @@ $wp_customize->add_setting(
     'default'           => $default['nexas_slider_option']
 ) );
 $wp_customize->add_control(
-    new PT_Repeater_Control(
+    new Nexas_Repeater_Control(
         $wp_customize,
         'nexas_slider_option',
         array(

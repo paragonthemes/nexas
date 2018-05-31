@@ -126,12 +126,35 @@ endif;
  * =====================================
  */
 function nexas_excerpt_more( $more ) {
-    if( is_admin() ){
+    if( !is_admin() ){
      return '';
     }
 }
 add_filter('excerpt_more', 'nexas_excerpt_more');
 
+/**
+ * Goto Top functions
+ *
+ * @since Nexas 1.0.0
+ *
+ */
+
+if (!function_exists('nexas_go_to_top' )) :
+    function nexas_go_to_top()
+    {
+         $nexas_to_top = nexas_get_option('nexas_footer_go_to_top');                 
+         if( $nexas_to_top == 1 )
+         {
+            ?>
+            <a id="toTop" class="go-to-top" href="#" title="<?php esc_attr_e('Go to Top', 'nexas'); ?>">
+                    <i class="fa fa-angle-double-up"></i>
+            </a>
+        <?php
+        }
+    }
+
+add_action('nexas_go_to_top_hook', 'nexas_go_to_top', 20 );
+endif;
 
 /**
  * Load Metabox file
@@ -198,3 +221,6 @@ require get_template_directory() . '/paragonthemes/widget/our-work-widget.php';
  * Custom Our Team Widget
  */
 require get_template_directory() . '/paragonthemes/widget/team-widget.php';
+
+
+

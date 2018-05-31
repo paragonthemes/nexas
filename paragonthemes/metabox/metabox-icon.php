@@ -37,7 +37,7 @@ if( !class_exists( 'Nexas_Font_Awesome_Class_Metabox') ){
             $values = get_post_meta( $post->ID, 'nexas_icon', true );
             wp_nonce_field( basename(__FILE__), 'nexas_fontawesome_fields_nonce');
             ?>
-            <input type="text" name="icon" value="<?php echo esc_html($values) ?>" />
+            <input type="text" name="icon" value="<?php echo esc_attr($values) ?>" />
             <br/>
             <small>
                 <?php

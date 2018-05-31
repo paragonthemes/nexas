@@ -37,9 +37,10 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
            
             if ( !empty( $instance ) ) {
                $a1 = array(40,4,42);
+
                if($a1 == $instance['cat_id'] )
                 {
-                   $instance['cat_id'] = array(7,8,11);
+                   $instance['cat_id'] = array(16,21,22);
                 }     
                 $post_number               = absint($instance['post_number']);
                 $column_number             = absint($instance['post_column']);
@@ -232,7 +233,7 @@ if (!class_exists( 'Nexas_Our_Work_Widget' ) ) {
             if($a1 == $instance['cat_id'] )
              
               {
-                $instance['cat_id'] = array(7,8,11);
+                $instance['cat_id'] = array(16,21,22);
               }
              
             if (!empty($instance['cat_id'])) 

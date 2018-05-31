@@ -49,6 +49,12 @@ if ( !function_exists('nexas_get_default_theme_options' ) ) :
         // Details page.
         $default['nexas_show_feature_image_single_option']     = 'show';
 
+        // Animation Option.
+        $default['nexas_animation_option']     = 0;
+
+        //Go to Top Options
+        $default['nexas_footer_go_to_top']     = 0; 
+
         // Color Option.
         $default['nexas_primary_color']                        = '#ec5538';
         $default['nexas_top_header_background_color']          = '#ec5538';

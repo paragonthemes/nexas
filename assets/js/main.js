@@ -18,6 +18,7 @@ Designed By: Paragon Themes
 		$(document).scroll(function(e){
 			var scrollTop = $(document).scrollTop();
 			if(scrollTop > $('header nav').height()){
+				//console.log(scrollTop);
 				$('header nav').addClass('navbar-fixed-top');
 			}
 			else {
@@ -27,7 +28,23 @@ Designed By: Paragon Themes
 			
 			 //Portfolio Popup
     $('.magnific-popup').magnificPopup({type:'image'});
-				
+			
+      //Check to see if the window is top if not then display button
+        jQuery(window).scroll(function($){
+          if (jQuery(this).scrollTop() > 100) {
+            jQuery('.go-to-top').addClass('gotop');
+            jQuery('.go-to-top').fadeIn();
+          } else {
+            jQuery('.go-to-top').fadeOut();
+          }
+        });
+      
+      //Click event to scroll to top
+      jQuery('.go-to-top').click(function($){
+        jQuery('html, body').animate({scrollTop : 0},800);
+        return false;
+      });
+        	
     
     });
 

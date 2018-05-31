@@ -92,10 +92,16 @@ if ( is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active
                        <span class="sep"> | </span>
                        <?php
                         /* translators: 1: Theme name, 2: Theme author. */
-                        printf( esc_html__( 'Theme: %1$s by %2$s', 'nexas' ), 'nexas', '<a href="http://paragonthemes.com">Paragon Themes</a>' );
+                        printf( esc_html__( 'Theme: %1$s by %2$s', 'nexas' ), 'Nexas', '<a href="http://paragonthemes.com">Paragon Themes</a>' );
                        ?></p>
                     </div>
             </div>
+            <?php
+                /*
+                /* Footer Go to Top
+                */
+                do_action('nexas_go_to_top_hook');
+            ?>
       </div>
     </div>
 </section>
