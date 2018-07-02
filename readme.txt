@@ -21,6 +21,9 @@ Powerful Theme for your business website. This theme comes with attractive slide
 
 #### Changelog ####
 
+## 1.0.5 - July 2 2018 ##
+* Fixed some minor CSS issues
+
 ## 1.0.4 - May 30 2018 ##
 * Disable Animation Added
 * Go to Top Added 

@@ -75,11 +75,14 @@ if ( !function_exists('nexas_dynamic_css') ):
      .woocommerce a.button, .woocommerce #respond input#submit.alt, 
      .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt
       {
-       background-color: " . $nexas_primary_color . ";}
+       background-color: " . $nexas_primary_color . ";
+      color: #FFF;
+
+}
     ";
 
     $custom_css .= "
-    a,
+    
     .section-4-box-icon-cont i,
     header .navbar-menu .navbar-nav > li > a:hover, 
     header .navbar-menu .navbar-nav > li > a:active,
@@ -87,7 +90,6 @@ if ( !function_exists('nexas_dynamic_css') ):
     header .navbar-menu .navbar-nav>.open>a:focus,
     header .navbar-menu .navbar-nav>.open>a:hover,
     .btn-seconday,
-    a:visited,
     .section-14-box .date span, 
     .section-14-box .author-post a,
     .btn-primary:hover,
